@@ -1,53 +1,46 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  TextInput,
-  Image,
-  Dimensions,
-  Modal,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Modal, TextInput, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import BottomNav from '../Components/BottomNav';
 import AppBar from '../Components/AppBar';
+import BottomNav from '../Components/BottomNav';
+import CategoriaCard from '../Components/CategoriaCard';
 
-const { width } = Dimensions.get('window');
-
-const popularCities = [
-  { id: 1, name: 'Paris', image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300' },
-  { id: 2, name: 'Kyoto', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300' },
-  { id: 3, name: 'Machu', image: 'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=300' },
-  { id: 4, name: 'New York', image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=300' },
+const categories = [
+  { id: 1, name: 'Política', image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300' },
+  { id: 2, name: 'Deportes', image: 'https://images.unsplash.com/photo-1505842465776-3bf6de6e10ae?w=300' },
+  { id: 3, name: 'Tecnología', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=300' },
+  { id: 4, name: 'Cultura', image: 'https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=300' },
 ];
 
-const recommended = [
+const news = [
   {
     id: 1,
-    name: 'Santorini, Greece',
-    distance: '234 miles away',
-    price: '$180',
-    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400',
-    likes: 5,
+    title: 'Nuevo avance en inteligencia artificial',
+    summary: 'Una empresa tecnológica ha presentado un modelo revolucionario de IA que promete cambiar la forma en que interactuamos con la tecnología.',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400',
+    date: 'Oct 9, 2025',
   },
   {
     id: 2,
-    name: 'Grand Canyon',
-    distance: '277 miles away',
-    price: '$240',
-    image: 'https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?w=400',
-    likes: 8,
+    title: 'México vence a Brasil en amistoso internacional',
+    summary: 'El equipo mexicano sorprendió a Brasil con una victoria 2-1 en un partido lleno de emoción y jugadas destacadas.',
+    image: 'https://images.unsplash.com/photo-1505842465776-3bf6de6e10ae?w=400',
+    date: 'Oct 8, 2025',
   },
   {
     id: 3,
-    name: 'Bali, Indonesia',
-    distance: '456 miles away',
-    price: '$150',
-    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400',
-    likes: 12,
+    title: 'Innovaciones en energías renovables',
+    summary: 'Se anuncian nuevos proyectos de energía solar y eólica que prometen cambiar la matriz energética de varios países.',
+    image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=400',
+    date: 'Oct 7, 2025',
+  },
+  {
+    id: 4,
+    title: 'Exposición cultural abre en la ciudad',
+    summary: 'Una nueva exposición cultural ofrece un recorrido por el arte contemporáneo local con instalaciones interactivas.',
+    image: 'https://images.unsplash.com/photo-1529101091764-c3526daf38fe?w=400',
+    date: 'Oct 6, 2025',
   },
 ];
 
@@ -57,7 +50,6 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      {/* AppBar Component */}
       <AppBar onSearchPress={() => setSearchVisible(true)} />
 
       {/* Modal de búsqueda */}
@@ -68,7 +60,7 @@ export default function HomeScreen() {
               <Ionicons name="search" size={20} color="#999" />
               <TextInput
                 style={styles.searchInput}
-                placeholder="Discover a city"
+                placeholder="Buscar noticias..."
                 value={searchQuery}
                 onChangeText={setSearchQuery}
                 autoFocus
@@ -81,68 +73,56 @@ export default function HomeScreen() {
         </View>
       </Modal>
 
-      {/* Popular Section */}
-      <View style={styles.popularSection}>
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Popular</Text>
-          <TouchableOpacity>
-            <Text style={styles.showAll}>Show all</Text>
-          </TouchableOpacity>
-        </View>
-
+      {/* Sección Categorías */}
+      <View style={styles.section}>
+        <Text style={styles.title}>Categorías</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.carousel}>
-          {popularCities.map((city) => (
-            <TouchableOpacity key={city.id} style={styles.cityCard}>
-              <Image source={{ uri: city.image }} style={styles.cityImage} />
-              <Text style={styles.cityName}>{city.name}</Text>
-            </TouchableOpacity>
+          {categories.map((cat) => (
+            <CategoriaCard
+              key={cat.id}
+              name={cat.name}
+              image={cat.image}
+              onPress={() => console.log(`Categoria: ${cat.name}`)}
+              style={styles.categoryCard}
+            />
           ))}
         </ScrollView>
       </View>
 
-      {/* Recommended Section */}
-      <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <View style={styles.recommendedSection}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Recommended</Text>
-            <TouchableOpacity>
-              <Text style={styles.showAll}>Show all</Text>
-            </TouchableOpacity>
-          </View>
-
-          {recommended.map((place) => (
-            <View key={place.id} style={styles.recommendedCard}>
-              <Image source={{ uri: place.image }} style={styles.recommendedImage} />
-              <TouchableOpacity style={styles.likeButton}>
-                <Ionicons name="heart" size={20} color="#5B4CCC" />
+      {/* Noticias recientes */}
+      <ScrollView style={styles.newsSection}>
+        <Text style={styles.title}>Últimas noticias</Text>
+        {news.map((n) => (
+          <View key={n.id} style={styles.newsCard}>
+            <Image source={{ uri: n.image }} style={styles.newsImage} />
+            <View style={styles.newsContent}>
+              <Text style={styles.newsTitle}>{n.title}</Text>
+              <Text style={styles.newsSummary}>{n.summary}</Text>
+              <Text style={styles.newsDate}>{n.date}</Text>
+              <TouchableOpacity
+                style={styles.moreButton}
+                onPress={() => console.log(`Ver más de: ${n.title}`)}
+              >
+                <Text style={styles.moreButtonText}>Ver más</Text>
               </TouchableOpacity>
-              <View style={styles.recommendedInfo}>
-                <Text style={styles.placeName}>{place.name}</Text>
-                <Text style={styles.distance}>{place.distance}</Text>
-                <View style={styles.priceRow}>
-                  <View>
-                    <Text style={styles.priceLabel}>Start from</Text>
-                    <Text style={styles.price}>{place.price}</Text>
-                  </View>
-                  <View style={styles.likesContainer}>
-                    <Ionicons name="thumbs-up" size={16} color="#FFFFFF" />
-                    <Text style={styles.likesText}>{place.likes}</Text>
-                  </View>
-                </View>
-              </View>
             </View>
-          ))}
-        </View>
+          </View>
+        ))}
       </ScrollView>
 
-      {/* BottomNav Component */}
       <BottomNav activeTab="home" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F5F5F5' },
+  // Contenedor principal
+  container: {
+    flex: 1,
+    backgroundColor: '#F5F5F5',
+  },
+
+  // Modal de búsqueda
   searchModal: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -152,71 +132,96 @@ const styles = StyleSheet.create({
   searchModalContent: {
     backgroundColor: '#FFFFFF',
     margin: 20,
-    borderRadius: 15,
+    borderRadius: 20,
     padding: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    elevation: 10,
   },
   searchInputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-    borderRadius: 10,
+    backgroundColor: '#F0F0F0',
+    borderRadius: 15,
     paddingHorizontal: 15,
     gap: 10,
   },
-  searchInput: { flex: 1, fontSize: 16, paddingVertical: 12, color: '#2D2D2D' },
-  popularSection: { backgroundColor: '#FFFFFF', paddingTop: 20, paddingBottom: 15 },
-  scrollContent: { flex: 1 },
-  recommendedSection: { paddingTop: 20, paddingBottom: 20 },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    marginBottom: 15,
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    paddingVertical: 12,
+    color: '#2D2D2D',
   },
-  sectionTitle: { fontSize: 24, fontWeight: 'bold', color: '#2D2D2D' },
-  showAll: { fontSize: 14, color: '#999' },
-  carousel: { paddingLeft: 20 },
-  cityCard: { marginRight: 15, alignItems: 'center' },
-  cityImage: { width: 80, height: 80, borderRadius: 20, marginBottom: 8 },
-  cityName: { fontSize: 14, fontWeight: '600', color: '#2D2D2D' },
-  recommendedCard: {
+
+  // Secciones
+  section: {
+    backgroundColor: '#FFFFFF',
+    paddingTop: 20,
+    paddingBottom: 15,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#2D2D2D',
     marginHorizontal: 20,
-    marginBottom: 20,
+    marginBottom: 10,
+  },
+  carousel: {
+    paddingLeft: 20,
+  },
+
+  // Noticias
+  newsSection: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 10,
+  },
+  newsCard: {
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
+    marginBottom: 20,
     overflow: 'hidden',
-    elevation: 3,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
+    elevation: 5,
   },
-  recommendedImage: { width: '100%', height: 200 },
-  likeButton: {
-    position: 'absolute',
-    top: 15,
-    right: 15,
-    width: 40,
-    height: 40,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+  newsImage: {
+    width: '100%',
+    height: 180,
   },
-  recommendedInfo: { padding: 15 },
-  placeName: { fontSize: 18, fontWeight: 'bold', color: '#2D2D2D', marginBottom: 5 },
-  distance: { fontSize: 14, color: '#999', marginBottom: 10 },
-  priceRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  priceLabel: { fontSize: 12, color: '#999' },
-  price: { fontSize: 24, fontWeight: 'bold', color: '#2D2D2D' },
-  likesContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#5B4CCC',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 20,
+  newsContent: {
+    padding: 15,
   },
-  likesText: { color: '#FFFFFF', fontWeight: 'bold', marginLeft: 5 },
+  newsTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333',
+  },
+  newsSummary: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 10,
+  },
+  newsDate: {
+    fontSize: 12,
+    color: '#999',
+    marginBottom: 10,
+  },
+  moreButton: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#1E90FF',
+    paddingVertical: 6,
+    paddingHorizontal: 15,
+    borderRadius: 12,
+  },
+  moreButtonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
 });
