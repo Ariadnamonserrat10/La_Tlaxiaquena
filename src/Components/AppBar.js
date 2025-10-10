@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   logo: {
-    width: 60,
-    height: 60,
+    width: 62,
+    height: 62,
     borderRadius: 10,
   },
   rightIcons: {
