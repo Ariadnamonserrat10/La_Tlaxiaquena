@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Alert  } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function BottomNav({ activeTab = 'home' }) {
@@ -17,17 +18,33 @@ export default function BottomNav({ activeTab = 'home' }) {
           )}
         </View>
       </TouchableOpacity>
-      
-      <TouchableOpacity style={styles.navItem}>
-        <Ionicons name="heart-outline" size={24} color="#B0B0B0" />
+
+      {/* Radio */}
+      <TouchableOpacity style={styles.navItem} onPress={() => Alert.alert('Trabajando en ello')}>
+        <View style={activeTab === 'radio' ? styles.activeNavItemRadio : styles.inactiveNavItem}>
+          <Ionicons 
+            name="radio-outline" 
+            size={24} 
+            color={activeTab === 'radio' ? '#003366' : '#B0B0B0'} 
+          />
+          {activeTab === 'radio' && (
+            <Text style={styles.activeNavTextRadio}>FM</Text>
+          )}
+        </View>
       </TouchableOpacity>
-      
-      <TouchableOpacity style={styles.navItem}>
-        <Ionicons name="compass-outline" size={24} color="#B0B0B0" />
-      </TouchableOpacity>
-      
-      <TouchableOpacity style={styles.navItem}>
-        <Ionicons name="person-outline" size={24} color="#B0B0B0" />
+
+      {/* Configuración */}
+      <TouchableOpacity style={styles.navItem} onPress={() => Alert.alert('Trabajando en ello')}>
+        <View style={activeTab === 'settings' ? styles.activeNavItemRadio : styles.inactiveNavItem}>
+          <Ionicons 
+            name="settings-outline" 
+            size={24} 
+            color={activeTab === 'settings' ? '#003366' : '#B0B0B0'} 
+          />
+          {activeTab === 'settings' && (
+            <Text style={styles.activeNavTextRadio}>Settings</Text>
+          )}
+        </View>
       </TouchableOpacity>
     </View>
   );
