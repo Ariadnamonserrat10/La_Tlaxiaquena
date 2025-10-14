@@ -1,222 +1,167 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  TextInput,
-  Image,
-  Dimensions,
-  Modal,
-} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-
-import BottomNav from '../Components/BottomNav';
+import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
+// Importa el componente que muestra cada tarjeta de categoría
+import CategoriaCard from '../Components/CategoriaCard';
+// Importa los datos de categorías y noticias desde el archivo Noticias.js
+import { categorias, noticias } from '../data/Noticias';
+// Importa la barra superior personalizada (AppBar)
 import AppBar from '../Components/AppBar';
-
-const { width } = Dimensions.get('window');
-
-const popularCities = [
-  { id: 1, name: 'Paris', image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300' },
-  { id: 2, name: 'Kyoto', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300' },
-  { id: 3, name: 'Machu', image: 'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=300' },
-  { id: 4, name: 'New York', image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=300' },
-];
-
-const recommended = [
-  {
-    id: 1,
-    name: 'Santorini, Greece',
-    distance: '234 miles away',
-    price: '$180',
-    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400',
-    likes: 5,
-  },
-  {
-    id: 2,
-    name: 'Grand Canyon',
-    distance: '277 miles away',
-    price: '$240',
-    image: 'https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?w=400',
-    likes: 8,
-  },
-  {
-    id: 3,
-    name: 'Bali, Indonesia',
-    distance: '456 miles away',
-    price: '$150',
-    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400',
-    likes: 12,
-  },
-];
-
+// Importa la barra de navegación inferior (BottomNav)
+import BottomNav from '../Components/BottomNav';
+// Se define y exporta el componente funcional principal HomeScreen
 export default function HomeScreen() {
-  const [searchVisible, setSearchVisible] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  // Estado que guarda qué categoría fue seleccionada
+  // Si es null, se muestran todas las noticias
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
+  // Filtra las noticias según la categoría seleccionada
+  // Si no hay categoría seleccionada muestra todas
+  const filteredNews = selectedCategory
+    ? noticias.filter(n => n.category === selectedCategory)
+    : noticias; // Mostrar todas si no hay categoría seleccionada
+
+  // Se devuelve toda la interfaz que se mostrará en la pantalla
   return (
-    <View style={styles.container}>
-      {/* AppBar Component */}
-      <AppBar onSearchPress={() => setSearchVisible(true)} />
+    <View style={{ flex: 1 }}>
+      {/* Barra superior (título, iconos, etc.) */}
+      <AppBar />
 
-      {/* Modal de búsqueda */}
-      <Modal visible={searchVisible} animationType="fade" transparent={true}>
-        <View style={styles.searchModal}>
-          <View style={styles.searchModalContent}>
-            <View style={styles.searchInputContainer}>
-              <Ionicons name="search" size={20} color="#999" />
-              <TextInput
-                style={styles.searchInput}
-                placeholder="Discover a city"
-                value={searchQuery}
-                onChangeText={setSearchQuery}
-                autoFocus
-              />
-              <TouchableOpacity onPress={() => setSearchVisible(false)}>
-                <Ionicons name="close" size={24} color="#2D2D2D" />
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
+      {/* Scroll principal para que todo el contenido sea desplazable */}
+      <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+        {/* Título principal "Categorías" */}
+        <Text style={styles.title}>Categorías</Text>
 
-      {/* Popular Section */}
-      <View style={styles.popularSection}>
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Popular</Text>
-          <TouchableOpacity>
-            <Text style={styles.showAll}>Show all</Text>
-          </TouchableOpacity>
-        </View>
-
+        {/* Scroll horizontal para mostrar las categorías en forma de carrusel */}
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.carousel}>
-          {popularCities.map((city) => (
-            <TouchableOpacity key={city.id} style={styles.cityCard}>
-              <Image source={{ uri: city.image }} style={styles.cityImage} />
-              <Text style={styles.cityName}>{city.name}</Text>
-            </TouchableOpacity>
+          {/* Se recorre el arreglo de categorías y se renderiza un componente por cada una */}
+          {categorias.map(cat => (
+            <CategoriaCard
+              key={cat.id} // Clave única
+              name={cat.name} // Nombre de la categoría
+              image={cat.image} // Imagen de la categoría
+              onPress={() => setSelectedCategory(cat.name)} // Al presionar, cambia la categoría seleccionada
+            />
           ))}
         </ScrollView>
-      </View>
 
-      {/* Recommended Section */}
-      <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <View style={styles.recommendedSection}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Recommended</Text>
-            <TouchableOpacity>
-              <Text style={styles.showAll}>Show all</Text>
-            </TouchableOpacity>
-          </View>
+        {/* Si hay noticias filtradas, se muestran */}
+        {filteredNews.length > 0 && (
+          <>
+            {/* Título de la sección de noticias */}
+            <Text style={styles.newsTitle}>
+              {selectedCategory ? `Noticias de ${selectedCategory}` : 'Todas las noticias'}
+            </Text>
 
-          {recommended.map((place) => (
-            <View key={place.id} style={styles.recommendedCard}>
-              <Image source={{ uri: place.image }} style={styles.recommendedImage} />
-              <TouchableOpacity style={styles.likeButton}>
-                <Ionicons name="heart" size={20} color="#5B4CCC" />
-              </TouchableOpacity>
-              <View style={styles.recommendedInfo}>
-                <Text style={styles.placeName}>{place.name}</Text>
-                <Text style={styles.distance}>{place.distance}</Text>
-                <View style={styles.priceRow}>
-                  <View>
-                    <Text style={styles.priceLabel}>Start from</Text>
-                    <Text style={styles.price}>{place.price}</Text>
-                  </View>
-                  <View style={styles.likesContainer}>
-                    <Ionicons name="thumbs-up" size={16} color="#FFFFFF" />
-                    <Text style={styles.likesText}>{place.likes}</Text>
-                  </View>
+            {/* Recorre y muestra cada noticia filtrada */}
+            {filteredNews.map(item => (
+              <View key={item.id} style={styles.card}>
+                {/* Imagen principal de la noticia */}
+                <Image source={{ uri: item.image }} style={styles.cardImage} />
+
+                {/* Contenedor con texto y botón */}
+                <View style={styles.cardContent}>
+                  <Text style={styles.cardTitle}>{item.title}</Text>
+                  <Text style={styles.cardSummary}>{item.summary}</Text>
+                  <Text style={styles.cardDate}>{item.date}</Text>
+
+                  {/* Botón Ver más */}
+                  <TouchableOpacity style={styles.cardButton}>
+                    <Text style={styles.cardButtonText}>Ver más</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
-            </View>
-          ))}
-        </View>
+            ))}
+          </>
+        )}
       </ScrollView>
 
-      {/* BottomNav Component */}
+      {/* Barra de navegación inferior con la pestaña home */}
       <BottomNav activeTab="home" />
     </View>
   );
 }
 
+// Definición de los estilos de la pantalla
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F5F5F5' },
-  searchModal: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'flex-start',
-    paddingTop: 60,
+  // Título "Categorías"
+  title: { 
+    fontSize: 22, // Tamaño grande
+    fontWeight: 'bold', // En negritas
+    marginHorizontal: 15, // Margen lateral
+    marginTop: 10, // Espacio superior
   },
-  searchModalContent: {
-    backgroundColor: '#FFFFFF',
-    margin: 20,
-    borderRadius: 15,
-    padding: 15,
+
+  // Carrusel de categorías 
+  carousel: { 
+    paddingLeft: 15, 
+    marginBottom: 15, 
   },
-  searchInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    gap: 10,
+
+  // Título de la sección de noticias
+  newsTitle: { 
+    fontSize: 20, 
+    fontWeight: 'bold', 
+    marginHorizontal: 15, 
+    marginVertical: 10, 
   },
-  searchInput: { flex: 1, fontSize: 16, paddingVertical: 12, color: '#2D2D2D' },
-  popularSection: { backgroundColor: '#FFFFFF', paddingTop: 20, paddingBottom: 15 },
-  scrollContent: { flex: 1 },
-  recommendedSection: { paddingTop: 20, paddingBottom: 20 },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    marginBottom: 15,
-  },
-  sectionTitle: { fontSize: 24, fontWeight: 'bold', color: '#2D2D2D' },
-  showAll: { fontSize: 14, color: '#999' },
-  carousel: { paddingLeft: 20 },
-  cityCard: { marginRight: 15, alignItems: 'center' },
-  cityImage: { width: 80, height: 80, borderRadius: 20, marginBottom: 8 },
-  cityName: { fontSize: 14, fontWeight: '600', color: '#2D2D2D' },
-  recommendedCard: {
-    marginHorizontal: 20,
+
+  // Tarjeta individual de cada noticia
+  card: { 
+    backgroundColor: '#fff', // Fondo blanco
+    borderRadius: 15, // Bordes redondeados
+    marginHorizontal: 15, 
     marginBottom: 20,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    overflow: 'hidden',
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
+    overflow: 'hidden', // Evita que se salgan los bordes redondeados
+    elevation: 3, // Sombra (Android)
   },
-  recommendedImage: { width: '100%', height: 200 },
-  likeButton: {
-    position: 'absolute',
-    top: 15,
-    right: 15,
-    width: 40,
-    height: 40,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+
+  // Imagen superior de la noticia
+  cardImage: { 
+    width: '100%', 
+    height: 180, 
   },
-  recommendedInfo: { padding: 15 },
-  placeName: { fontSize: 18, fontWeight: 'bold', color: '#2D2D2D', marginBottom: 5 },
-  distance: { fontSize: 14, color: '#999', marginBottom: 10 },
-  priceRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  priceLabel: { fontSize: 12, color: '#999' },
-  price: { fontSize: 24, fontWeight: 'bold', color: '#2D2D2D' },
-  likesContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#5B4CCC',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 20,
+
+  // Contenedor del texto dentro de la tarjeta
+  cardContent: { 
+    padding: 15, 
   },
-  likesText: { color: '#FFFFFF', fontWeight: 'bold', marginLeft: 5 },
+
+  // Título de la noticia
+  cardTitle: { 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    marginBottom: 8, 
+  },
+
+  // Resumen de la noticia
+  cardSummary: { 
+    fontSize: 14, 
+    color: '#666', 
+    marginBottom: 10, 
+  },
+
+  // Fecha de la noticia
+  cardDate: { 
+    fontSize: 12, 
+    color: '#999', 
+    marginBottom: 10, 
+  },
+
+  // Botón "Ver más"
+  cardButton: { 
+    alignSelf: 'flex-start', 
+    backgroundColor: '#0a325aff', // Azul oscuro
+    paddingVertical: 6, 
+    paddingHorizontal: 15, 
+    borderRadius: 10, 
+  },
+
+  // Texto dentro del botón
+  cardButtonText: { 
+    color: '#fff', 
+    fontWeight: 'bold', 
+    fontSize: 14, 
+  },
 });
+
+
