@@ -1,256 +1,167 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Modal, TextInput, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-
-import AppBar from '../Components/AppBar';
-import BottomNav from '../Components/BottomNav';
+import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
+// Importa el componente que muestra cada tarjeta de categoría
 import CategoriaCard from '../Components/CategoriaCard';
-
-
-
-const categories = [
-  { id: 1, name: 'Política', image: 'https://i.pinimg.com/1200x/66/86/6e/66866ec8c4035dbc4411fbefc6da4136.jpg' },
-  { id: 2, name: 'Deportess', image: 'https://i.pinimg.com/736x/b8/0c/36/b80c3618c938a9b7f59327099514d230.jpg' },
-  { id: 3, name: 'Tecnología', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=300' },
-  { id: 4, name: 'Cultura', image: 'https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=300' },
-  { id: 5, name: 'Nacional', image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800' },
-  { id: 6, name: 'Internacional', image: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=800' },
-  { id: 7, name: 'Estatal', image: 'https://i.pinimg.com/1200x/cc/f0/92/ccf092c360a3869e7c6764059bb8b140.jpg' },
-  { id: 8, name: 'Municipal', image: 'https://i.pinimg.com/1200x/16/96/0e/16960e58ee0cb22b962316083f33eae4.jpg' },
-];
-
-const news = [
-  {
-    id: 1,
-    title: 'Nuevo avance en inteligencia artificial',
-    summary: 'Una empresa tecnológica ha presentado un modelo revolucionario de IA que promete cambiar la forma en que interactuamos con la tecnología.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400',
-    date: 'Oct 9, 2025',
-    category: ['Tecnología'],
-  },
-  {
-    id: 2,
-    title: 'México vence a Brasil en amistoso internacional',
-    summary: 'El equipo mexicano sorprendió a Brasil con una victoria 2-1 en un partido lleno de emoción y jugadas destacadas.',
-    image: 'https://images.unsplash.com/photo-1505842465776-3bf6de6e10ae?w=400',
-    date: 'Oct 8, 2025',
-    category: ['Deportes'],
-  },
-  {
-    id: 3,
-    title: 'Innovaciones en energías renovables',
-    summary: 'Se anuncian nuevos proyectos de energía solar y eólica que prometen cambiar la matriz energética de varios países.',
-    image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=400',
-    date: 'Oct 7, 2025',
-    category: ['Tecnología'],
-  },
-  {
-    id: 4,
-    title: 'Exposición cultural abre en la ciudad',
-    summary: 'Una nueva exposición cultural ofrece un recorrido por el arte contemporáneo local con instalaciones interactivas.',
-    image: 'https://images.unsplash.com/photo-1529101091764-c3526daf38fe?w=400',
-    date: 'Oct 6, 2025',
-    category: ['Cultura'],
-  },
-];
-
+// Importa los datos de categorías y noticias desde el archivo Noticias.js
+import { categorias, noticias } from '../data/Noticias';
+// Importa la barra superior personalizada (AppBar)
+import AppBar from '../Components/AppBar';
+// Importa la barra de navegación inferior (BottomNav)
+import BottomNav from '../Components/BottomNav';
+// Se define y exporta el componente funcional principal HomeScreen
 export default function HomeScreen() {
-  const [searchVisible, setSearchVisible] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-
+  // Estado que guarda qué categoría fue seleccionada
+  // Si es null, se muestran todas las noticias
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  // Filtra las noticias según la categoría seleccionada
+  // Si no hay categoría seleccionada muestra todas
   const filteredNews = selectedCategory
-    ? news.filter((n) => n.category.includes(selectedCategory))
-    : news;
+    ? noticias.filter(n => n.category === selectedCategory)
+    : noticias; // Mostrar todas si no hay categoría seleccionada
 
+  // Se devuelve toda la interfaz que se mostrará en la pantalla
   return (
-    <View style={styles.container}>
-      <AppBar onSearchPress={() => setSearchVisible(true)} />
+    <View style={{ flex: 1 }}>
+      {/* Barra superior (título, iconos, etc.) */}
+      <AppBar />
 
-      {/* Modal de búsqueda */}
-      <Modal visible={searchVisible} animationType="fade" transparent={true}>
-        <View style={styles.searchModal}>
-          <View style={styles.searchModalContent}>
-            <View style={styles.searchInputContainer}>
-              <Ionicons name="search" size={20} color="#999" />
-              <TextInput
-                style={styles.searchInput}
-                placeholder="Buscar noticias..."
-                value={searchQuery}
-                onChangeText={setSearchQuery}
-                autoFocus
-              />
-              <TouchableOpacity onPress={() => setSearchVisible(false)}>
-                <Ionicons name="close" size={24} color="#2D2D2D" />
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
-
-      {/* Categorías */}
-      <View style={styles.section}>
+      {/* Scroll principal para que todo el contenido sea desplazable */}
+      <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+        {/* Título principal "Categorías" */}
         <Text style={styles.title}>Categorías</Text>
+
+        {/* Scroll horizontal para mostrar las categorías en forma de carrusel */}
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.carousel}>
-          {categories.map((cat) => (
+          {/* Se recorre el arreglo de categorías y se renderiza un componente por cada una */}
+          {categorias.map(cat => (
             <CategoriaCard
-              key={cat.id}
-              name={cat.name}
-              image={cat.image}
-              onPress={() => setSelectedCategory(cat.name)} // 🔹 cambia categoría activa
-              style={styles.categoryCard}
+              key={cat.id} // Clave única
+              name={cat.name} // Nombre de la categoría
+              image={cat.image} // Imagen de la categoría
+              onPress={() => setSelectedCategory(cat.name)} // Al presionar, cambia la categoría seleccionada
             />
           ))}
         </ScrollView>
-      </View>
 
-      {/* Noticias */}
-      <ScrollView style={styles.newsSection}>
-        <Text style={styles.title}>
-          {selectedCategory ? `Noticias ${selectedCategory}` : 'Últimas noticias'}
-        </Text>
+        {/* Si hay noticias filtradas, se muestran */}
+        {filteredNews.length > 0 && (
+          <>
+            {/* Título de la sección de noticias */}
+            <Text style={styles.newsTitle}>
+              {selectedCategory ? `Noticias de ${selectedCategory}` : 'Todas las noticias'}
+            </Text>
 
-        {filteredNews.length > 0 ? (
-          filteredNews.map((n) => (
-            <View key={n.id} style={styles.newsCard}>
-              <Image source={{ uri: n.image }} style={styles.newsImage} />
-              <View style={styles.newsContent}>
-                <Text style={styles.newsTitle}>{n.title}</Text>
-                <Text style={styles.newsSummary}>{n.summary}</Text>
-                <Text style={styles.newsDate}>{n.date}</Text>
-                <TouchableOpacity
-                  style={styles.moreButton}
-                  onPress={() => console.log(`Ver más de: ${n.title}`)}
-                >
-                  <Text style={styles.moreButtonText}>Ver más</Text>
-                </TouchableOpacity>
+            {/* Recorre y muestra cada noticia filtrada */}
+            {filteredNews.map(item => (
+              <View key={item.id} style={styles.card}>
+                {/* Imagen principal de la noticia */}
+                <Image source={{ uri: item.image }} style={styles.cardImage} />
+
+                {/* Contenedor con texto y botón */}
+                <View style={styles.cardContent}>
+                  <Text style={styles.cardTitle}>{item.title}</Text>
+                  <Text style={styles.cardSummary}>{item.summary}</Text>
+                  <Text style={styles.cardDate}>{item.date}</Text>
+
+                  {/* Botón Ver más */}
+                  <TouchableOpacity style={styles.cardButton}>
+                    <Text style={styles.cardButtonText}>Ver más</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
-          ))
-        ) : (
-          <Text style={{ textAlign: 'center', marginTop: 20 }}>
-            No hay noticias de esta categoría
-          </Text>
+            ))}
+          </>
         )}
       </ScrollView>
 
+      {/* Barra de navegación inferior con la pestaña home */}
       <BottomNav activeTab="home" />
-
-
     </View>
   );
 }
 
+// Definición de los estilos de la pantalla
 const styles = StyleSheet.create({
-  // Contenedor principal
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F5F5',
+  // Título "Categorías"
+  title: { 
+    fontSize: 22, // Tamaño grande
+    fontWeight: 'bold', // En negritas
+    marginHorizontal: 15, // Margen lateral
+    marginTop: 10, // Espacio superior
   },
 
-  // Modal de búsqueda
-  searchModal: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'flex-start',
-    paddingTop: 60,
-  },
-  searchModalContent: {
-    backgroundColor: '#FFFFFF',
-    margin: 20,
-    borderRadius: 20,
-    padding: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
-    elevation: 10,
-  },
-  searchInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#F0F0F0',
-    borderRadius: 15,
-    paddingHorizontal: 15,
-    gap: 10,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: 16,
-    paddingVertical: 12,
-    color: '#2D2D2D',
+  // Carrusel de categorías 
+  carousel: { 
+    paddingLeft: 15, 
+    marginBottom: 15, 
   },
 
-  //Categorias
-  section: {
-    backgroundColor: '#FFFFFF',
-    paddingTop: 5,       
-  paddingBottom: 5,    
-  marginTop: 0,  
+  // Título de la sección de noticias
+  newsTitle: { 
+    fontSize: 20, 
+    fontWeight: 'bold', 
+    marginHorizontal: 15, 
+    marginVertical: 10, 
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#2D2D2D',
-    marginHorizontal: 20,
-    marginBottom: 10,
-  },
-  carousel: {
-    paddingLeft: 10,
-  },
-  
 
-  // Noticias
-  newsSection: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 10,
-  },
-  newsCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
+  // Tarjeta individual de cada noticia
+  card: { 
+    backgroundColor: '#fff', // Fondo blanco
+    borderRadius: 15, // Bordes redondeados
+    marginHorizontal: 15, 
     marginBottom: 20,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5,
+    overflow: 'hidden', // Evita que se salgan los bordes redondeados
+    elevation: 3, // Sombra (Android)
   },
-  newsImage: {
-    width: '100%',
-    height: 180,
+
+  // Imagen superior de la noticia
+  cardImage: { 
+    width: '100%', 
+    height: 180, 
   },
-  newsContent: {
-    padding: 15,
+
+  // Contenedor del texto dentro de la tarjeta
+  cardContent: { 
+    padding: 15, 
   },
-  newsTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#333',
+
+  // Título de la noticia
+  cardTitle: { 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    marginBottom: 8, 
   },
-  newsSummary: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 10,
+
+  // Resumen de la noticia
+  cardSummary: { 
+    fontSize: 14, 
+    color: '#666', 
+    marginBottom: 10, 
   },
-  newsDate: {
-    fontSize: 12,
-    color: '#999',
-    marginBottom: 10,
+
+  // Fecha de la noticia
+  cardDate: { 
+    fontSize: 12, 
+    color: '#999', 
+    marginBottom: 10, 
   },
-  moreButton: {
-    alignSelf: 'flex-start',
-    backgroundColor: '#0a325aff',
-    paddingVertical: 6,
-    paddingHorizontal: 15,
-    borderRadius: 12,
+
+  // Botón "Ver más"
+  cardButton: { 
+    alignSelf: 'flex-start', 
+    backgroundColor: '#0a325aff', // Azul oscuro
+    paddingVertical: 6, 
+    paddingHorizontal: 15, 
+    borderRadius: 10, 
   },
-  moreButtonText: {
-    color: '#FFF',
-    fontWeight: 'bold',
-    fontSize: 14,
+
+  // Texto dentro del botón
+  cardButtonText: { 
+    color: '#fff', 
+    fontWeight: 'bold', 
+    fontSize: 14, 
   },
 });
+
+
