@@ -41,6 +41,8 @@ export const categorias = [
     name: 'Municipal', 
     image: 'https://i.pinimg.com/1200x/16/96/0e/16960e58ee0cb22b962316083f33eae4.jpg' 
   },
+
+
 ];
 
 // Ahora se exporta otra constante llamada 'noticias', que también es un arreglo.
@@ -70,5 +72,46 @@ export const noticias = [
     date: 'Oct 9, 2025',
     category: 'Tecnología',
   },
+  {
+    id: 4,
+    title: 'Día De Muertos en Oaxaca',
+    summary:'Del 26 de octubre al 3 de noviembre, Oaxaca se llena de comparsas, flores y cultura para celebrar el Día de Muertos como ninguna otra región',
+    image:'https://www.excelsior.com.mx/770x530/filters:format(webp):quality(75)/media/pictures/2025/10/08/3395066.jpg',
+    date:'Oct 8, 2025',
+    category:'Cultura',
+  },
+  {
+    id: 5,
+    title:'Defensa mantiene a 7 mil 300 elementos en la aplicación del Plan DN-III-E por lluvias',
+    summary:'La dependencia detalló que en Veracruz se presenta el mayor despliegue operativo',
+    image:'https://www.excelsior.com.mx/770x530/filters:format(webp):quality(75)/media/pictures/2025/10/14/3398277.jpg',
+    date:'Oct 14,2025',
+    category:'Nacional',
+  },
+  {
+    id: 6,
+    title:'Polonia despliega aviones mientras Ucrania sufre fuertes ataques aéreos rusos',
+    summary:'Polonia envió aviones de combate a su espacio aéreo la mañana de este domingo, informaron sus fuerzas armadas, mientras su vecina Ucrania era objeto de un intenso bombardeo con misiles y drones rusos.',
+    image:'https://media.cnn.com/api/v1/images/stellar/prod/rescatista.jpeg?q=w_1160,c_fill/f_webp',
+    date:'Septiembre 28, 2025',
+    category:'Internacional',
+  },
+  {
+    id:7,
+    title:'Temblor en Oaxaca',
+    summary:'Se registra sismo de 4.3 en Matías Romero',
+    image:'https://www.infobae.com/resizer/v2/6FEUQO4LGRFYZGNBS7TRSM5SO4.jpg?auth=82f20c7f1645192d8e68a4f378b497ba3e1ec2f028a523ef9a6256964013ce3e&smart=true&width=992&height=558&quality=85',
+    date:'Oct 14,2025',
+    category:'Estatal',
+  },
+  {
+    id:8,
+    title:'Presentarán libro sobre Palmeadoras de Tlaxiaco',
+    summary:'Es una investigación que hizo el maestro, Tomás Ortega Ortega, del colegio de posgraduados y después de tres años',
+    image:'https://www.diariodelamixteca.com/wp-content/uploads/2018/06/tortillas.jpg',
+    date:'Junio 8,2018',
+    category:'Municipal',
+  }
+
 ];
 
