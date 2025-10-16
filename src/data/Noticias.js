@@ -30,7 +30,7 @@ export const noticias = [
     title: 'México vence a Brasil en amistoso internacional',
     summary: 'El equipo mexicano sorprendió a Brasil con una victoria 2-1.',
     content: 'México jugó un partido espectacular contra Brasil y logró imponerse 2-1. El primer gol llegó a los 23 minutos gracias a un gran disparo de fuera del área, mientras que Brasil empató al minuto 60. Finalmente, México anotó el gol de la victoria al minuto 82 tras una jugada colectiva impresionante. El público celebró con entusiasmo la victoria.',
-    image: 'https://images.unsplash.com/photo-1505842465776-3bf6de6e10ae?w=400',
+    image: 'https://www.mundoconectado.com.br/wp-content/uploads/2024/06/Mexico-x-Brasil-onde-assistir-ao-amistoso-internacional-ao-vivo.jpg',
     date: 'Oct 8, 2025',
     category: 'Deportes',
   },
