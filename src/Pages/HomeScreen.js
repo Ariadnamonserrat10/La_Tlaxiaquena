@@ -1,16 +1,17 @@
 import React, { useState, memo } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { 
+  View, Text, Image, StyleSheet, TouchableOpacity, FlatList, Modal, TextInput 
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { categorias, noticias } from '../data/Noticias';
 import AppBar from '../Components/AppBar';
 import BottomNav from '../Components/BottomNav';
+import { Ionicons } from '@expo/vector-icons';
 
 // Tarjeta de categoría
-// Se usa memo para que solo se re-renderice si cambian las props
 const CategoriaCard = memo(({ name, image, onPress }) => {
   return (
     <TouchableOpacity style={styles.categoryCard} onPress={onPress}>
-      {/* Imagen de la categoría */}
       <View style={styles.categoryImageContainer}>
         <Image
           source={{ uri: image, cache: 'force-cache' }}
@@ -18,14 +19,12 @@ const CategoriaCard = memo(({ name, image, onPress }) => {
           resizeMode="cover"
         />
       </View>
-      {/* Nombre de la categoría */}
-      <Text style={styles.categoryName}>{name}</Text>
+      <Text style={styles.categoryName}>{String(name)}</Text>
     </TouchableOpacity>
   );
 });
 
 // Tarjeta de noticia
-// Muestra la imagen, título, resumen, fecha y botón de ver más
 const NewsCard = memo(({ item, onPress }) => {
   return (
     <View style={styles.card}>
@@ -34,10 +33,9 @@ const NewsCard = memo(({ item, onPress }) => {
         style={styles.cardImage}
       />
       <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>{item.title}</Text>
-        <Text style={styles.cardSummary}>{item.summary}</Text>
-        <Text style={styles.cardDate}>{item.date}</Text>
-        {/* Botón para navegar a detalle */}
+        <Text style={styles.cardTitle}>{String(item.title)}</Text>
+        <Text style={styles.cardSummary}>{String(item.summary)}</Text>
+        <Text style={styles.cardDate}>{String(item.date)}</Text>
         <TouchableOpacity style={styles.cardButton} onPress={onPress}>
           <Text style={styles.cardButtonText}>Ver más</Text>
         </TouchableOpacity>
@@ -47,34 +45,38 @@ const NewsCard = memo(({ item, onPress }) => {
 });
 
 // Pantalla principal
-
 export default function HomeScreen() {
-  // Estado para saber qué categoría está seleccionada
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const navigation = useNavigation(); // Para navegar a otras pantallas
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigation = useNavigation();
 
-  // Filtra las noticias según la categoría seleccionada
-  const filteredNews = selectedCategory
-    ? noticias.filter(n => n.category === selectedCategory)
-    : noticias;
+  // Filtrado de noticias por categoría y búsqueda
+  const filteredNews = noticias.filter(n => {
+    const matchCategory = selectedCategory ? n.category === selectedCategory : true;
+    const matchSearch = searchQuery
+      ? n.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        n.summary.toLowerCase().includes(searchQuery.toLowerCase())
+      : true;
+    return matchCategory && matchSearch;
+  });
 
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       {/* Barra superior */}
-      <AppBar />
+      <AppBar onSearchPress={() => setSearchVisible(true)} />
 
-      {/* Carrusel de categorías*/}
+      {/* Carrusel de categorías */}
       <View style={{ paddingVertical: 10, backgroundColor: '#fff' }}>
         <FlatList
-          data={categorias} // Datos de categorías
-          horizontal // Lista horizontal
-          showsHorizontalScrollIndicator={false} // Oculta scroll
-          keyExtractor={cat => cat.id.toString()} // Clave única
+          data={categorias}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={cat => String(cat.id)}
           renderItem={({ item }) => (
             <CategoriaCard
               name={item.name}
               image={item.image}
-              // Al tocar una categoría, se guarda en el estado
               onPress={() => setSelectedCategory(item.name)}
             />
           )}
@@ -84,21 +86,39 @@ export default function HomeScreen() {
 
       {/* Lista de noticias */}
       <FlatList
-        data={filteredNews} // Noticias filtradas según categoría
-        keyExtractor={item => item.id.toString()} // Clave única
+        data={filteredNews}
+        keyExtractor={item => String(item.id)}
         renderItem={({ item }) => (
           <NewsCard
             item={item}
-            // Al tocar "Ver más", navega a la pantalla NewsDetail
-            onPress={() =>
-              navigation.navigate('NewsDetail', { news: item })
-            }
+            onPress={() => navigation.navigate('NewsDetail', { news: item })}
           />
         )}
-        contentContainerStyle={{ paddingBottom: 100 }} // Evita que se tape con BottomNav
-        removeClippedSubviews={true} // Optimiza rendimiento
-        initialNumToRender={5} // Renderiza solo 5 al inicio
+        contentContainerStyle={{ paddingBottom: 100 }}
+        removeClippedSubviews={true}
+        initialNumToRender={5}
       />
+
+      {/* Modal de búsqueda */}
+      <Modal visible={searchVisible} animationType="fade" transparent={true}>
+        <View style={styles.searchModal}>
+          <View style={styles.searchModalContent}>
+            <View style={styles.searchInputContainer}>
+              <Ionicons name="search" size={20} color="#999" />
+              <TextInput
+                style={styles.searchInput}
+                placeholder="Buscar noticias..."
+                value={searchQuery}
+                onChangeText={setSearchQuery} // Esto actualiza en tiempo real
+                autoFocus
+              />
+              <TouchableOpacity onPress={() => setSearchVisible(false)}>
+                <Ionicons name="close" size={24} color="#2D2D2D" />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
 
       {/* Barra inferior */}
       <BottomNav activeTab="home" />
@@ -174,5 +194,30 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 14,
+  },
+  searchModal: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchModalContent: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    width: '90%',
+    padding: 15,
+    elevation: 10,
+  },
+  searchInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f2f2f2',
+    borderRadius: 10,
+    paddingHorizontal: 10,
+  },
+  searchInput: {
+    flex: 1,
+    marginLeft: 8,
+    height: 40,
   },
 });

@@ -10,7 +10,7 @@ export default function AppBar({ onSearchPress }) {
         source={require('../img/nt-el-reloj-circular.gif')}
         style={styles.logo}
       />
-      
+
       {/* Iconos derecha */}
       <View style={styles.rightIcons}>
         <TouchableOpacity onPress={onSearchPress} style={styles.iconButton}>
@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingTop: 60,
-    paddingBottom: 5,
+    paddingBottom: 20,
     backgroundColor: '#FFFFFF',
   },
   logo: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     borderRadius: 10,
   },
   rightIcons: {

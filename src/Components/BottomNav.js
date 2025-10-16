@@ -1,49 +1,54 @@
-
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Alert  } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function BottomNav({ activeTab = 'home' }) {
+  const navigation = useNavigation(); // Navegación disponible
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.navItem}>
+      {/* Home */}
+      <TouchableOpacity
+        style={styles.navItem}
+        onPress={() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }],
+          })
+        }
+      >
         <View style={activeTab === 'home' ? styles.activeNavItem : styles.inactiveNavItem}>
           <Ionicons 
             name="home" 
             size={24} 
             color={activeTab === 'home' ? '#5B4CCC' : '#B0B0B0'} 
           />
-          {activeTab === 'home' && (
-            <Text style={styles.activeNavText}>Home</Text>
-          )}
+          {activeTab === 'home' && <Text style={styles.activeNavText}>Home</Text>}
         </View>
       </TouchableOpacity>
 
       {/* Radio */}
-      <TouchableOpacity style={styles.navItem} onPress={() => Alert.alert('Trabajando en ello')}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Radio')}>
         <View style={activeTab === 'radio' ? styles.activeNavItemRadio : styles.inactiveNavItem}>
           <Ionicons 
             name="radio-outline" 
             size={24} 
             color={activeTab === 'radio' ? '#003366' : '#B0B0B0'} 
           />
-          {activeTab === 'radio' && (
-            <Text style={styles.activeNavTextRadio}>FM</Text>
-          )}
+          {activeTab === 'radio' && <Text style={styles.activeNavTextRadio}>FM</Text>}
         </View>
       </TouchableOpacity>
 
       {/* Configuración */}
-      <TouchableOpacity style={styles.navItem} onPress={() => Alert.alert('Trabajando en ello')}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Settings')}>
         <View style={activeTab === 'settings' ? styles.activeNavItemRadio : styles.inactiveNavItem}>
           <Ionicons 
             name="settings-outline" 
             size={24} 
             color={activeTab === 'settings' ? '#003366' : '#B0B0B0'} 
           />
-          {activeTab === 'settings' && (
-            <Text style={styles.activeNavTextRadio}>Settings</Text>
-          )}
+          {activeTab === 'settings' && <Text style={styles.activeNavTextRadio}>Settings</Text>}
         </View>
       </TouchableOpacity>
     </View>
@@ -82,6 +87,11 @@ const styles = StyleSheet.create({
   },
   activeNavText: {
     color: '#5B4CCC',
+    fontWeight: 'bold',
+    marginLeft: 8,
+  },
+  activeNavTextRadio: {
+    color: '#003366',
     fontWeight: 'bold',
     marginLeft: 8,
   },

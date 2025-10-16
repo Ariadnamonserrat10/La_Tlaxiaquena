@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplishScreen from './src/Pages/SplishScreen';
 import HomeScreen from './src/Pages/HomeScreen';
 import NewsDetailScreen from './src/Pages/NewsDetailsScreen';
+import RadioScreen from './src/Components/RadioScreen';
 // Creamos la instancia del stack navigator
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         />
         <Stack.Screen name="NewsDetail" component={NewsDetailScreen} options={{ detachPreviousScreen: false }} // Evita que HomeScreen se recargue al regresar desde NewsDetail
         />
+        <Stack.Screen name="Radio" component={RadioScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
