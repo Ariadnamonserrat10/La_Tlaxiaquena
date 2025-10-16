@@ -40,10 +40,28 @@ export default function AppBar({ onSearchPress, onNotificationsPress, hasUnread 
 }
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingTop: 60, paddingBottom: 5, backgroundColor: '#FFFFFF' },
-  logo: { width: 60, height: 60, borderRadius: 10 },
-  rightIcons: { flexDirection: 'row', alignItems: 'center', gap: 15 },
-  iconButton: { padding: 8 },
+  container: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    paddingHorizontal: 20, 
+    paddingTop: 60, 
+    paddingBottom: 20, 
+    backgroundColor: '#FFFFFF' 
+  },
+  logo: { 
+    width: 60, 
+    height: 60, 
+    borderRadius: 10 
+  },
+  rightIcons: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    gap: 15 
+  },
+  iconButton: { 
+    padding: 8 
+  },
   unreadDot: {
     position: 'absolute',
     top: 4,
