@@ -1,8 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import SplishScreen from './src/Pages/SplishScreen';
 import HomeScreen from './src/Pages/HomeScreen';
-
+import NewsDetailScreen from './src/Pages/NewsDetailsScreen';
+import NotificationsScreen from './src/Pages/NotificationsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +14,8 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={SplishScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
-        
+        <Stack.Screen name="NewsDetail" component={NewsDetailScreen} />
+        <Stack.Screen name="Notifications" component={NotificationsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
