@@ -1,9 +1,12 @@
 import React, { useState, memo } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { 
+  View, Text, Image, StyleSheet, TouchableOpacity, FlatList, Modal, TextInput 
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { categorias, noticias } from '../data/Noticias';
 import AppBar from '../Components/AppBar';
 import BottomNav from '../Components/BottomNav';
+import { Ionicons } from '@expo/vector-icons';
 
 // Tarjeta de categoría
 const CategoriaCard = memo(({ name, image, onPress }) => (
@@ -32,17 +35,25 @@ const NewsCard = memo(({ item, onPress }) => (
 
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [unreadCount, setUnreadCount] = useState(1); // Puntito rojo inicial
+  const [unreadCount, setUnreadCount] = useState(1);
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigation = useNavigation();
 
-  const filteredNews = selectedCategory
-    ? noticias.filter(n => n.category === selectedCategory)
-    : noticias;
+  // Filtrado de noticias por categoría y búsqueda
+  const filteredNews = noticias.filter(n => {
+    const matchCategory = selectedCategory ? n.category === selectedCategory : true;
+    const matchSearch = searchQuery
+      ? n.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        n.summary.toLowerCase().includes(searchQuery.toLowerCase())
+      : true;
+    return matchCategory && matchSearch;
+  });
 
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <AppBar
-        onSearchPress={() => {}}
+        onSearchPress={() => setSearchVisible(true)}
         onNotificationsPress={() => navigation.navigate('Notifications', { markRead: true })}
         hasUnread={unreadCount > 0}
       />
@@ -80,6 +91,27 @@ export default function HomeScreen() {
         initialNumToRender={5}
       />
 
+      {/* Modal de búsqueda */}
+      <Modal visible={searchVisible} animationType="fade" transparent={true}>
+        <View style={styles.searchModal}>
+          <View style={styles.searchModalContent}>
+            <View style={styles.searchInputContainer}>
+              <Ionicons name="search" size={20} color="#999" />
+              <TextInput
+                style={styles.searchInput}
+                placeholder="Buscar noticias..."
+                value={searchQuery}
+                onChangeText={setSearchQuery}
+                autoFocus
+              />
+              <TouchableOpacity onPress={() => setSearchVisible(false)}>
+                <Ionicons name="close" size={24} color="#2D2D2D" />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
       <BottomNav activeTab="home" />
     </View>
   );
@@ -99,4 +131,8 @@ const styles = StyleSheet.create({
   cardDate: { fontSize: 12, color: '#999', marginBottom: 10 },
   cardButton: { alignSelf: 'flex-start', backgroundColor: '#0a325aff', paddingVertical: 6, paddingHorizontal: 15, borderRadius: 10 },
   cardButtonText: { color: '#fff', fontWeight: 'bold', fontSize: 14 },
+  searchModal: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'center', alignItems: 'center' },
+  searchModalContent: { backgroundColor: '#fff', borderRadius: 10, width: '90%', padding: 15, elevation: 10 },
+  searchInputContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#f2f2f2', borderRadius: 10, paddingHorizontal: 10 },
+  searchInput: { flex: 1, marginLeft: 8, height: 40 },
 });
