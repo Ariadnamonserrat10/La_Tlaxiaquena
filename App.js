@@ -24,7 +24,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-        screenOptions={{ headerShown: false }}
+        screenOptions={{ 
+          headerShown: false,
+          animation: 'none', // Desactiva animaciones globalmente
+        }}
         initialRouteName="Splash"
       >
         {/* Pantallas principales */}
@@ -33,7 +36,9 @@ export default function App() {
         <Stack.Screen 
           name="NewsDetail" 
           component={NewsDetailScreen} 
-          options={{ detachPreviousScreen: false }}
+          options={{ 
+            animation: 'none', // Sin animación al entrar y salir
+          }}
         />
         <Stack.Screen name="Radio" component={RadioScreen} />
         <Stack.Screen name="Notifications" component={NotificationsScreen} />
