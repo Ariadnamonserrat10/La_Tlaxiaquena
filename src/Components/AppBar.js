@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, Animated, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function AppBar({ onSearchPress, onNotificationsPress, hasUnread }) {
@@ -18,6 +18,8 @@ export default function AppBar({ onSearchPress, onNotificationsPress, hasUnread 
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
+
       <Image
         source={require('../img/nt-el-reloj-circular.gif')}
         style={styles.logo}
@@ -41,26 +43,29 @@ export default function AppBar({ onSearchPress, onNotificationsPress, hasUnread 
 
 const styles = StyleSheet.create({
   container: { 
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    alignItems: 'center', 
-    paddingHorizontal: 20, 
-    paddingTop: 60, 
-    paddingBottom: 20, 
-    backgroundColor: '#FFFFFF' 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 45, // 🔹 espacio fijo superior para bajarlo visualmente
+    paddingBottom: 10,
+    backgroundColor: '#FFFFFF',
+    height: 115, // 🔹 altura total controlada (más equilibrada)
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#ddd',
   },
   logo: { 
-    width: 60, 
-    height: 60, 
-    borderRadius: 10 
+    width: 48, 
+    height: 48, 
+    borderRadius: 10,
   },
   rightIcons: { 
     flexDirection: 'row', 
-    alignItems: 'center', 
-    gap: 15 
+    alignItems: 'center',
+    gap: 10,
   },
   iconButton: { 
-    padding: 8 
+    padding: 6,
   },
   unreadDot: {
     position: 'absolute',

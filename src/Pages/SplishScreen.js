@@ -34,7 +34,6 @@ const createParticleArrays = () => {
 
 export default function SplashScreen() {
   const navigation = useNavigation();
-  const [progress, setProgress] = useState(0);
   const [showTransition, setShowTransition] = useState(false);
   const [hideElements, setHideElements] = useState(false);
   const [logoFixed, setLogoFixed] = useState(false);
@@ -42,22 +41,10 @@ export default function SplashScreen() {
   const anims = useMemo(() => createAnimatedValues(), []);
   const particles = useMemo(() => createParticleArrays(), []);
 
-  // 🔹 Contador sin Animated (ligero y fluido en Android)
-  useEffect(() => {
-    if (!logoFixed) return;
-    let value = 0;
-    const timer = setInterval(() => {
-      value += value < 50 ? 1 : 3; // lento al principio, rápido al final
-      setProgress(value);
-      if (value >= 100) {
-        clearInterval(timer);
-        setTimeout(() => startTransitionAnimation(), 200);
-      }
-    }, 35);
-    return () => clearInterval(timer);
-  }, [logoFixed]);
+  // Cuando el logo queda fijo, se iniciarán las animaciones de progreso/órbita
+  // y después de un pequeño retraso se lanzará la transición hacia la siguiente pantalla.
 
-  // 🔹 Animación de entrada del logo
+  //Animación de entrada del logo
   useEffect(() => {
     const timer = setTimeout(() => {
       Animated.sequence([
@@ -95,6 +82,11 @@ export default function SplashScreen() {
         }).start(() => {
           startProgressRotation();
           startMiniParticlesPulse();
+          // Iniciar la transición automáticamente después de un corto delay.
+          // Si animConfig.autoTransitionDelay está presente en la configuración
+          // se usará; de lo contrario usamos 1000ms por defecto.
+          const delay = animConfig.autoTransitionDelay || 1000;
+          setTimeout(() => startTransitionAnimation(), delay);
         });
       });
     }, 100);
@@ -157,8 +149,8 @@ export default function SplashScreen() {
       const angle = (index / particles.explosion.length) * Math.PI * 2;
       const distance =
         Math.random() *
-          (animConfig.explosionParticles.distanceRange[1] -
-            animConfig.explosionParticles.distanceRange[0]) +
+        (animConfig.explosionParticles.distanceRange[1] -
+          animConfig.explosionParticles.distanceRange[0]) +
         animConfig.explosionParticles.distanceRange[0];
 
       Animated.parallel([
@@ -259,8 +251,7 @@ export default function SplashScreen() {
         >
           <Image
             source={require('../img/nt-el-reloj-circular.gif')}
-            style={styles.logo}
-          />
+            style={styles.logo} />
         </Animated.View>
 
         {/* Mini partículas */}
@@ -346,29 +337,111 @@ export default function SplashScreen() {
             />
           ))}
       </Animated.View>
-
-      {/* Contador SIN Animated */}
-      {logoFixed && !showTransition && progress < 100 && (
-        <View style={styles.percentContainer}>
-          <Text style={styles.percentText}>{progress}%</Text>
-          <Text style={styles.loadingText}>Cargando...</Text>
-        </View>
-      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center', overflow: 'hidden' },
-  gradientBg: { ...StyleSheet.absoluteFillObject, backgroundColor: '#0a1e47' },
-  mainContainer: { justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' },
-  logoContainer: { zIndex: 3, position: 'absolute', justifyContent: 'center', alignItems: 'center' },
-  logo: { width: 160, height: 160, borderRadius: 80 },
-  orbitRing: { width: 280, height: 280, borderRadius: 140, borderWidth: 1, borderColor: 'rgba(255,255,255,0.15)', position: 'absolute', zIndex: 1 },
-  orbitParticle: { width: 12, height: 12, borderRadius: 6, position: 'absolute', shadowColor: '#FFFFFF', shadowOffset: { width: 0, height: 0 }, shadowOpacity: 0.9, shadowRadius: 10, elevation: 10, zIndex: 2 },
-  miniParticle: { width: 5, height: 5, borderRadius: 2.5, position: 'absolute', shadowOffset: { width: 0, height: 0 }, shadowOpacity: 0.7, shadowRadius: 4, elevation: 6, zIndex: 2 },
-  particle: { position: 'absolute', width: 12, height: 12, borderRadius: 6, zIndex: 4 },
-  percentContainer: { position: 'absolute', bottom: 100, alignItems: 'center', zIndex: 5 },
-  percentText: { fontSize: 56, fontWeight: 'bold', color: '#FFFFFF' },
-  loadingText: { fontSize: 16, color: '#FFFFFF', marginTop: 8, fontWeight: '500' },
+  container:
+  {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden'
+  },
+  gradientBg:
+  {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#0a1e47'
+  },
+  mainContainer:
+  {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%'
+  },
+  logoContainer:
+  {
+    zIndex: 3,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logo:
+  {
+    width: 160,
+    height: 160,
+    borderRadius: 80
+  },
+  orbitRing:
+  {
+    width: 280,
+    height: 280,
+    borderRadius: 140,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.15)',
+    position: 'absolute',
+    zIndex: 1
+  },
+  orbitParticle:
+  {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    position: 'absolute',
+    shadowColor: '#FFFFFF',
+    shadowOffset:
+    {
+      width: 0,
+      height: 0
+    },
+    shadowOpacity: 0.9,
+    shadowRadius: 10,
+    elevation: 10,
+    zIndex: 2
+  },
+  miniParticle:
+  {
+    width: 5,
+    height: 5, borderRadius: 2.5,
+    position: 'absolute',
+    shadowOffset:
+    {
+      width: 0,
+      height: 0
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 4,
+    elevation: 6,
+    zIndex: 2
+  },
+  particle:
+  {
+    position: 'absolute',
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    zIndex: 4
+  },
+  percentContainer:
+  {
+    position: 'absolute',
+    bottom: 100,
+    alignItems: 'center',
+    zIndex: 5
+  },
+  percentText:
+  {
+    fontSize: 56,
+    fontWeight: 'bold',
+    color: '#FFFFFF'
+  },
+  loadingText:
+  {
+    fontSize: 16,
+    color: '#FFFFFF',
+    marginTop: 8,
+    fontWeight: '500'
+  },
 });

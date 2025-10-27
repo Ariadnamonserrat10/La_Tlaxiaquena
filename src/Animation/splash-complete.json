@@ -31,11 +31,5 @@
     "scale": 1.3,
     "rotateDuration": 1000,
     "fadeDuration": 900
-  },
-  "counter": {
-    "slowIncrement": 0.5,
-    "fastIncrement": 2,
-    "threshold": 50,
-    "interval": 30
   }
 }
