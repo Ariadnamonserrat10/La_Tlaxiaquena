@@ -1,56 +1,99 @@
-import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { View, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 export default function BottomNav({ activeTab = 'home' }) {
   const navigation = useNavigation();
+  
+  // Animaciones para cada tab
+  const scaleHome = useRef(new Animated.Value(1)).current;
+  const scaleRadio = useRef(new Animated.Value(1)).current;
+  const scaleSocial = useRef(new Animated.Value(1)).current;
+  const scaleSettings = useRef(new Animated.Value(1)).current;
+
+  // Animación de pulso para el tab activo
+  const pulseAnim = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulseAnim, {
+          toValue: 1.05,
+          duration: 1200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(pulseAnim, {
+          toValue: 1,
+          duration: 1200,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+  }, []);
+
+  // Función para animar el press (más rápida)
+  const animatePress = (scale) => {
+    Animated.sequence([
+      Animated.timing(scale, {
+        toValue: 0.85,
+        duration: 50,
+        useNativeDriver: true,
+      }),
+      Animated.spring(scale, {
+        toValue: 1,
+        friction: 5,
+        tension: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
+  const renderNavItem = (tabName, icon, label, scale, route) => {
+    const isActive = activeTab === tabName;
+    
+    return (
+      <TouchableOpacity
+        style={isActive ? styles.activeNavItem : styles.inactiveNavItem}
+        onPress={() => {
+          animatePress(scale);
+          setTimeout(() => {
+            if (tabName === 'home') {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: route }],
+              });
+            } else {
+              navigation.navigate(route);
+            }
+          }, 50);
+        }}
+        activeOpacity={0.7}
+      >
+        <Animated.View 
+          style={{ 
+            transform: [
+              { scale: isActive ? Animated.multiply(scale, pulseAnim) : scale }
+            ]
+          }}
+        >
+          <Ionicons
+            name={icon}
+            size={24}
+            color={isActive ? '#0047AB' : '#999'}
+          />
+        </Animated.View>
+        {isActive && <Text style={styles.activeNavText}>{label}</Text>}
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View style={styles.container}>
-      {/* Home */}
-      <TouchableOpacity
-        style={activeTab === 'home' ? styles.activeNavItem : styles.inactiveNavItem}
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'Home' }],
-          })
-        }
-      >
-        <Ionicons
-          name="home-outline"
-          size={24}
-          color={activeTab === 'home' ? '#5B4CCC' : '#999'}
-        />
-        {activeTab === 'home' && <Text style={styles.activeNavText}>Home</Text>}
-      </TouchableOpacity>
-
-      {/* Radio */}
-      <TouchableOpacity
-        style={activeTab === 'radio' ? styles.activeNavItem : styles.inactiveNavItem}
-        onPress={() => navigation.navigate('Radio')}
-      >
-        <Ionicons
-          name="radio-outline"
-          size={24}
-          color={activeTab === 'radio' ? '#003366' : '#999'}
-        />
-        {activeTab === 'radio' && <Text style={styles.activeNavTextRadio}>FM</Text>}
-      </TouchableOpacity>
-
-      {/* Configuración */}
-      <TouchableOpacity
-        style={activeTab === 'settings' ? styles.activeNavItem : styles.inactiveNavItem}
-        onPress={() => navigation.navigate('Configuración')}
-      >
-        <Ionicons
-          name="settings-outline"
-          size={24}
-          color={activeTab === 'settings' ? '#5B4CCC' : '#999'}
-        />
-        {activeTab === 'settings' && <Text style={styles.activeNavText}>Config</Text>}
-      </TouchableOpacity>
+      {renderNavItem('home', 'home', 'Inicio', scaleHome, 'Home')}
+      {renderNavItem('radio', 'radio', 'Radio', scaleRadio, 'Radio')}
+      {renderNavItem('social', 'people', 'Social', scaleSocial, 'Social')}
+      {renderNavItem('settings', 'settings-sharp', 'Ajustes', scaleSettings, 'Configuración')}
     </View>
   );
 }
@@ -74,7 +117,7 @@ const styles = StyleSheet.create({
   activeNavItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E8E5FF',
+    backgroundColor: '#E3F2FD',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 25,
@@ -83,12 +126,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   activeNavText: {
-    color: '#5B4CCC',
-    fontWeight: 'bold',
-    marginLeft: 8,
-  },
-  activeNavTextRadio: {
-    color: '#003366',
+    color: '#0047AB',
     fontWeight: 'bold',
     marginLeft: 8,
   },
