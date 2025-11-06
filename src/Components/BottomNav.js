@@ -1,99 +1,151 @@
 import React, { useRef, useEffect } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Animated, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+
+const { width } = Dimensions.get('window');
 
 export default function BottomNav({ activeTab = 'home' }) {
   const navigation = useNavigation();
   
-  // Animaciones para cada tab
-  const scaleHome = useRef(new Animated.Value(1)).current;
-  const scaleRadio = useRef(new Animated.Value(1)).current;
-  const scaleSocial = useRef(new Animated.Value(1)).current;
-  const scaleSettings = useRef(new Animated.Value(1)).current;
+  // Posición de la burbuja
+  const bubblePosition = useRef(new Animated.Value(getBubblePosition(activeTab))).current;
+  
+  // Escala y posición Y de la burbuja
+  const bubbleScale = useRef(new Animated.Value(1)).current;
+  const bubbleTranslateY = useRef(new Animated.Value(0)).current;
 
-  // Animación de pulso para el tab activo
-  const pulseAnim = useRef(new Animated.Value(1)).current;
+  // Calcula la posición de la burbuja según el tab activo
+  function getBubblePosition(tab) {
+    const positions = {
+      'home': 0,
+      'radio': 1,
+      'social': 2,
+      'settings': 3,
+    };
+    return positions[tab] || 0;
+  }
 
   useEffect(() => {
-    Animated.loop(
+    const targetPosition = getBubblePosition(activeTab);
+    
+    // Animación de la burbuja moviéndose con efecto bounce más fluido
+    Animated.parallel([
+      // Movimiento horizontal más suave y lento
+      Animated.spring(bubblePosition, {
+        toValue: targetPosition,
+        friction: 8,
+        tension: 50,
+        useNativeDriver: true,
+      }),
+      // Efecto bounce más suave en la escala
       Animated.sequence([
-        Animated.timing(pulseAnim, {
-          toValue: 1.05,
-          duration: 1200,
+        Animated.timing(bubbleScale, {
+          toValue: 0.85,
+          duration: 150,
           useNativeDriver: true,
         }),
-        Animated.timing(pulseAnim, {
-          toValue: 1,
-          duration: 1200,
+        Animated.spring(bubbleScale, {
+          toValue: 1.08,
+          friction: 6,
+          tension: 50,
           useNativeDriver: true,
         }),
-      ])
-    ).start();
-  }, []);
-
-  // Función para animar el press (más rápida)
-  const animatePress = (scale) => {
-    Animated.sequence([
-      Animated.timing(scale, {
-        toValue: 0.85,
-        duration: 50,
-        useNativeDriver: true,
-      }),
-      Animated.spring(scale, {
-        toValue: 1,
-        friction: 5,
-        tension: 100,
-        useNativeDriver: true,
-      }),
+        Animated.spring(bubbleScale, {
+          toValue: 1.0,
+          friction: 7,
+          tension: 50,
+          useNativeDriver: true,
+        }),
+      ]),
+      // Movimiento Y más suave (sobresale hacia arriba)
+      Animated.sequence([
+        Animated.timing(bubbleTranslateY, {
+          toValue: -6,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+        Animated.spring(bubbleTranslateY, {
+          toValue: 0,
+          friction: 7,
+          tension: 40,
+          useNativeDriver: true,
+        }),
+      ]),
     ]).start();
+  }, [activeTab]);
+
+  const handlePress = (tabName, route) => {
+    if (tabName === 'home') {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: route }],
+      });
+    } else {
+      navigation.navigate(route);
+    }
   };
 
-  const renderNavItem = (tabName, icon, label, scale, route) => {
+  // Calcula el translateX de la burbuja con mejor precisión
+  const containerWidth = width - 40; // padding horizontal
+  const itemWidth = containerWidth / 4;
+  const bubbleTranslateX = bubblePosition.interpolate({
+    inputRange: [0, 1, 2, 3],
+    outputRange: [
+      itemWidth * 0.5 - 27.5,
+      itemWidth * 1.5 - 27.5,
+      itemWidth * 2.5 - 27.5,
+      itemWidth * 3.5 - 27.5,
+    ],
+  });
+
+  const renderNavItem = (tabName, icon, label, route) => {
     const isActive = activeTab === tabName;
     
     return (
       <TouchableOpacity
-        style={isActive ? styles.activeNavItem : styles.inactiveNavItem}
-        onPress={() => {
-          animatePress(scale);
-          setTimeout(() => {
-            if (tabName === 'home') {
-              navigation.reset({
-                index: 0,
-                routes: [{ name: route }],
-              });
-            } else {
-              navigation.navigate(route);
-            }
-          }, 50);
-        }}
+        style={styles.navItem}
+        onPress={() => handlePress(tabName, route)}
         activeOpacity={0.7}
       >
-        <Animated.View 
-          style={{ 
-            transform: [
-              { scale: isActive ? Animated.multiply(scale, pulseAnim) : scale }
-            ]
-          }}
-        >
+        <View style={styles.iconContainer}>
           <Ionicons
             name={icon}
-            size={24}
-            color={isActive ? '#0047AB' : '#999'}
+            size={26}
+            color={isActive ? '#FFFFFF' : '#0047AB'}
           />
-        </Animated.View>
-        {isActive && <Text style={styles.activeNavText}>{label}</Text>}
+          <Text style={[
+            styles.labelText,
+            isActive && styles.activeLabelText
+          ]}>
+            {label}
+          </Text>
+        </View>
       </TouchableOpacity>
     );
   };
 
   return (
     <View style={styles.container}>
-      {renderNavItem('home', 'home', 'Inicio', scaleHome, 'Home')}
-      {renderNavItem('radio', 'radio', 'Radio', scaleRadio, 'Radio')}
-      {renderNavItem('social', 'people', 'Social', scaleSocial, 'Social')}
-      {renderNavItem('settings', 'settings-sharp', 'Ajustes', scaleSettings, 'Configuración')}
+      {/* Burbuja animada */}
+      <Animated.View
+        style={[
+          styles.bubble,
+          {
+            transform: [
+              { translateX: bubbleTranslateX },
+              { translateY: bubbleTranslateY },
+              { scale: bubbleScale },
+            ],
+          },
+        ]}
+      />
+
+      {/* Iconos */}
+      {renderNavItem('home', 'home', 'Inicio', 'Home')}
+      {renderNavItem('radio', 'radio', 'Radio', 'Radio')}
+      {renderNavItem('social', 'people', 'Social', 'Social')}
+      {renderNavItem('settings', 'settings-sharp', 'Ajustes', 'Configuración')}
     </View>
   );
 }
@@ -104,8 +156,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    paddingVertical: 15,
-    paddingBottom: 30,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     elevation: 10,
@@ -113,21 +165,40 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: -3 },
     shadowOpacity: 0.1,
     shadowRadius: 10,
+    position: 'relative',
   },
-  activeNavItem: {
-    flexDirection: 'row',
+  bubble: {
+    position: 'absolute',
+    width: 55,
+    height: 55,
+    borderRadius: 27.5,
+    backgroundColor: '#0047AB',
+    elevation: 8,
+    shadowColor: '#0047AB',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    left: 20,
+  },
+  navItem: {
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 25,
+    justifyContent: 'center',
+    zIndex: 1,
+    flex: 1,
   },
-  inactiveNavItem: {
-    padding: 10,
+  iconContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 55,
+    height: 55,
   },
-  activeNavText: {
+  labelText: {
+    fontSize: 9,
+    fontWeight: '600',
+    marginTop: 2,
     color: '#0047AB',
-    fontWeight: 'bold',
-    marginLeft: 8,
+  },
+  activeLabelText: {
+    color: '#FFFFFF',
   },
 });
