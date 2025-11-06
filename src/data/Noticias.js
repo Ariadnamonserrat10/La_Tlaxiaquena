@@ -20,21 +20,18 @@ export const noticias = [
   // content contenido completo y detallado de la noticia
   // image URL de la imagen principal
   // date fecha de publicación
-  //author autor de la noticia
   // category categoría a la que pertenece la noticia
 
   {
     id: 1,
-    title: 'Comunidad del Tecnológico de Tlaxiaco exige cambio directivo por presunta mala gestión',
-    summary: `Comunidad del #Tecnológico de #Tlaxiaco exige cambio directivo por presunta #malagestión
-Ramón Ramírez Gutiérrez`,
-    content: `Tlaxiaco, Oax., a 23 de octubre de 2025.- La base trabajadora del Instituto Tecnológico de Tlaxiaco hizo público un contundente comunicado dirigido a la comunidad tecnológica y a la sociedad en general, donde detalla una serie de presuntas irregularidades en la gestión del director, Amado Santos Santiago, y exige la renovación del cuerpo directivo.
-El documento expresa que, a casi tres años de la llegada del director, en lugar del prometido posicionamiento basado en la honestidad, justicia y amor, la institución enfrenta un «constante abandono de su liderazgo y ausentismo», lo que ha restado crecimiento a la institución.
-Entre los señalamientos específicos se encuentran la mala administración de recursos, donde se menciona la gestión de un campo de fútbol soccer profesional con una inversión de ocho millones de pesos, el cual presenta fallas en la construcción según el supervisor estatal (IOCIED), sin que se haya dado un seguimiento para reclamar la garantía. Asimismo, se señala el abandono de la construcción de la Unidad Multifuncional de Talleres y Laboratorios y la desatención de una asignación de 15 millones de pesos en 2023.
-Se exige rendición de cuentas sobre los ingresos propios y el gasto de operación. Denuncian que un programa de mantenimiento no refleja la inversión real, dejando sin atender baños fuera de servicio, filtraciones en edificios incluyendo la sala de juntas, donde se colocó una cubeta, y fallas en vehículos oficiales que han puesto en riesgo a estudiantes y personal.`,
-    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/136957-1024x632.jpeg',
-    date: 'Octubre 23, 2025',
-    author: 'Ramón Ramírez Gutiérrez',
+    title: 'Participa CEPCyGR en foro internacional “Tsunamis: del conocimiento a la acción” para fortalecer capacidad de respuesta',
+    summary: `Santa María Huatulco, Oax. 5 de noviembre de 2025.- Con el respaldo de laCoordinación Estatal de Protección Civil y Gestión de Riesgos de Oaxaca (CEPCyGR), se realizó este miércoles en Bahías de Huatulco, el foro internacional “Tsunamis: del conocimiento a la acción, experiencias compartidas para la reducción de riesgos”, a fin de fortalecer la preparación y capacidad de respuesta ante fenómenos de origen oceánico.`,
+    content: `En el marco del Día Mundial de Concienciación sobre Tsunamis, 5 de noviembre, el encuentro reunió a especialistas y autoridades de México y Japón en un espacio de diálogo e intercambio de conocimientos sobre acciones preventivas, educación y estrategias de preparación; que contribuyan a reducir el riesgo por fenómenos naturales en el Pacífico Mexicano.
+    Durante el foro, se abordaron temas relacionados con la evaluación del peligro, la gestión del riesgo, resiliencia comunitaria y comunicación preventiva, en el que se destacó la importancia de consolidar procesos de capacitación y cultura de prevención en zonas costeras.
+    Entre las instituciones participantes destacan el Centro Nacional de Prevención de Desastres (Cenapred), el Centro de Alerta de Tsunamis de la Secretaría de Marina, el Centro de Investigación para la Prevención de Desastres de la Universidad de Kioto, Japón, la Universidad Nacional Autónoma de México (UNAM), la Universidad de Hyogo, Japón y el Instituto México de Huatulco.
+    La CEPCyGR establece vínculos de cooperación internacional para la reducción del riesgo de desastres e impulsa una cultura de protección civil basada en el conocimiento y la acción.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/11/Participa-CEPCyGR-en-foro-internacional-Tsunamis-del-conocimiento-a-la-accion-para-fortalecer-capacidad-de-respuesta-2-1024x742.jpeg',
+    date: 'Noviembre 5, 2025',
     category: 'Locales',
   },
   {
@@ -48,7 +45,6 @@ También mencionó que, tras el incidente, se comunicó con el Presidente para i
 El ataque no dejó personas lesionadas, pero sí genera preocupación entre los artistas que constantemente viajan por carretera para cumplir con sus presentaciones. “Ojalá esto sirva para que las autoridades hagan algo, porque no es justo lo que se vive”, finalizó.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/1761168251748.jpg',
     date: 'Octubre 22, 2025',
-    author: 'Ramón Ramírez Gutiérrez',
     category: 'Locales',
   },
   {
@@ -62,7 +58,6 @@ Al robustecer el marco jurídico en la materia se contribuye a una sociedad más
     La Iniciativa de Reforma fue aprobada con 37 votos en la Sesión Extraordinaria del pasado 30 de septiembre de 2025, mediante la cual se deroga la fracción XIII y se adicionan las fracciones XIV, XV, XVI, XVII y XVIII al artículo 7, se reforma la denominación del Capítulo Tercero Bis y se adiciona el artículo 17 Quinquies a la Ley Estatal de Acceso de las Mujeres a una vida Libre de Violencia de Género.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Dip-Cecilia-Olivia-Cruz-Merlin-1024x682.jpeg',
     date: 'Octubre  22, 2025',
-    author: 'Noemi Garcia Reyes',
     category: 'Locales',
   },
   {
@@ -78,7 +73,6 @@ Al robustecer el marco jurídico en la materia se contribuye a una sociedad más
     “Lo importante es que los pueblos están demostrando su deseo de vivir en paz y de construir un futuro mejor para sus habitantes”, concluyó.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-23-at-16.05.59-1-1024x576.jpeg',
     date: 'Octubre  23, 2025',
-    author: 'Ramón Ramírez Gutiérrez.',
     category: 'Regionales',
   },
   {
@@ -94,7 +88,6 @@ Al robustecer el marco jurídico en la materia se contribuye a una sociedad más
     Además de la mejora directa del servicio, estas obras tienen un fuerte componente de justicia social: responde a una demanda histórica de comunidades que han carecido de recursos en infraestructura básica.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/CEABIEN-3-3.jpeg',
     date: 'Octubre 10, 2025',
-    author: 'Noemi Garcia Reyes',
     category: 'Regionales',
   },
   {
@@ -110,7 +103,6 @@ Al robustecer el marco jurídico en la materia se contribuye a una sociedad más
     Estas festividades abonan a otras que favorecen la riqueza de la región Mixteca:  el 12 de octubre se efectuará el Festival de la Barbacoa y Cerveza Artesanal en Villa Tejúpam de la Unión; el Concierto de Música Tradicional en la Capilla Abierta de San Pedro y San Pablo Teposculula y el Rodeo de la Mixteca en Huajuapan de León; mientras que el día 18 se efectuará el Festival del Mole Negro en Tlaxiaco.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/09/Anuncia-Sectur-la-llegada-del-Festival-del-Mole-de-Caderas-2025-y-la-Guelaguetza-Nuu-Savi-3.jpeg',
     date: 'Septiembre 25, 2025',
-    author: 'Noemi Garcia Reyes',
     category: 'Regionales',
   },
   {
@@ -133,7 +125,6 @@ Visitó zonas donde se edifican: Casa de Transición del DIF, Parque Lineal y mo
     En una primera etapa, este camino será modernizado en una longitud de 3.1 kilómetros de vialidad, en el cual se dispondrá de banquetas, arbolado y ciclovía. Estos trabajos tienen, actualmente, un avance del 43 por ciento.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Construye-Salomon-Jara-centro-de-inteligencia-para-consolidar-un-Oaxaca-seguro-1-1024x682.jpeg',
     date: 'Octubre 26, 2025',
-    author: 'Noemi Garcia Reyes',
     category: 'Estatales',
   },
 
@@ -151,7 +142,6 @@ Visitó zonas donde se edifican: Casa de Transición del DIF, Parque Lineal y mo
     Así como en Villa de Zaachila, San Antonino Castillo Velasco, Puerto Escondido en San Pedro Mixtepec, Río Grande en Villa de Tututepec de Melchor Ocampo y Santa María Huatulco.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Anuncia-Sectur-Oaxaca-eventos-de-la-Fiesta-Mas-Viva-de-Todas-en-Valles-Centrales-y-Costa-1-1024x606.jpeg',
     date: 'Octubre 25, 2025',
-    author: 'Noemi Garcia Reyes',
     category: 'Estatales',
   },
   {
@@ -164,7 +154,6 @@ Visitó zonas donde se edifican: Casa de Transición del DIF, Parque Lineal y mo
     Asimismo, las instalaciones del Palacio de Gobierno, Palacio municipal de Oaxaca de Juárez y de la Corporación Oaxaqueña de Radio y Televisión (Cortv) serán iluminados de color verde este sábado 25 de octubre, como símbolo de esperanza, visibilidad y compromiso con la inclusión.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Conmemora-Gobierno-de-Oaxaca-el-Dia-Mundial-de-las-Personas-de-Talla-Baja-1.jpeg',
     date: 'Octubre 25,2025',
-    author: 'Noemi Garcia Reyes',
     category: 'Estatales',
   },
   {
@@ -207,7 +196,6 @@ Visitó zonas donde se edifican: Casa de Transición del DIF, Parque Lineal y mo
     Los casos resueltos en esta sesión -Solicitudes de Ejercicio de la Facultad de Atracción 467/2025 y 486/2025, y Solicitudes de Reasunción de Competencia 73/2025 y 65/2025- marcan el inicio de una nueva era en la justicia mexicana, donde la Corte se enfrenta al desafío de equilibrar su autonomía judicial con las demandas sociales en un contexto de mayor apertura ciudadana.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/IMG-20251002-WA0049-1024x682.jpg',
     date: 'Octubre 2, 2025',
-    author: 'Ramón Ramírez Gutiérrez',
     category: 'Nacionales',
   },
   {
@@ -222,7 +210,6 @@ Visitó zonas donde se edifican: Casa de Transición del DIF, Parque Lineal y mo
     La tragedia del AI171 conmocionó al mundo, reavivando debates sobre seguridad aérea y protocolos de emergencia. La investigación, aún en curso, busca respuestas para prevenir futuros desastres.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/06/crop-w1438-h1200-ap25163545251931-c1dec9f7-focus-0.59-min0.22-608-342.jpg',
     date: 'Junio 12,2025',
-    author: 'Ramón Ramírez Gutiérrez',
     category: 'Internacionales',
   },
   {
@@ -237,7 +224,6 @@ Visitó zonas donde se edifican: Casa de Transición del DIF, Parque Lineal y mo
     El apagón reabre el debate sobre la seguridad energética europea en un contexto de crisis geopolítica y altos precios de la electricidad. Mientras, millones esperan que no se repita una noche tan oscura.`,
     image: 'https://noticieroselreloj.com/wp-content/uploads/2025/04/17458397318016-1024x683.jpg',
     date: 'Abril 29,2025',
-    author: 'Ramón Ramírez Gutiérrez',
     category: 'Internacionales',
   },
   {
