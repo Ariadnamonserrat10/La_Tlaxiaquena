@@ -75,6 +75,7 @@ export default function ConfiguracionScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
       </View>
+      <BottomNav activeTab="settings" />
     </ScrollView>
   );
 }
