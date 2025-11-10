@@ -12,13 +12,10 @@ export default function ConfiguracionScreen({ navigation }) {
 
   return (
     <ScrollView style={[styles.container, { backgroundColor: fondo }]}>
-  <Text style={[styles.titulo, { color: texto, paddingTop: 10 }]}>
-    Configuración
-  </Text>
+      <Text style={[styles.titulo, { color: texto, paddingTop: 10 }]}>
+        Configuración
+      </Text>
 
-
-
-     
       {/* Legal */}
       <View style={[styles.card, { backgroundColor: tarjeta }]}>
         <Text style={[styles.subtitulo, { color: texto }]}>Legal</Text>
@@ -61,7 +58,7 @@ export default function ConfiguracionScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* 🔘 Cambiar tema solo aquí */}
+      {/* 🔘 Ajustes de Apariencia (comentado)
       <View style={[styles.card, { backgroundColor: tarjeta }]}>
         <Text style={[styles.subtitulo, { color: texto }]}>Ajustes de Apariencia</Text>
 
@@ -75,7 +72,7 @@ export default function ConfiguracionScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
       </View>
-      <BottomNav activeTab="settings" />
+      */}
     </ScrollView>
   );
 }
