@@ -37,6 +37,7 @@ export default function CategoryScreen({ route, navigation }) {
               <Text style={styles.title}>{n.title}</Text>
               <Text style={styles.summary}>{n.summary}</Text>
               <Text style={styles.date}>{n.date}</Text>
+            
 
               {/* Botón "Ver más" */}
               <TouchableOpacity style={styles.button} onPress={() => handlePress(n.id)}>
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
     color: '#999',
     marginTop: 5,
   },
+
   button: {
     marginTop: 10,
     backgroundColor: '#0a325aff',

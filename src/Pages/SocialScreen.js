@@ -8,6 +8,7 @@ import {
   Linking,
   Text,
 } from "react-native";
+import BottomNav from "../Components/BottomNav";
 import { FontAwesome } from "@expo/vector-icons";
 
 export default function NotificacionesScreen() {
@@ -35,7 +36,7 @@ export default function NotificacionesScreen() {
       color: "#25D366",
       label: "WhatsApp",
       number: "+52 953-100-0190",
-      url: "https://wa.me/529531000190", // ✅ sin espacios
+      url: "https://wa.me/529531000190",
     },
     {
       name: "youtube-play",
@@ -47,26 +48,35 @@ export default function NotificacionesScreen() {
   ];
 
   return (
-    <Animated.View
-      style={[
-        styles.container,
-        {
-          transform: [{ translateX: slideAnim }],
-        },
-      ]}
-    >
-      {icons.map((icon, index) => (
-        <DraggableIcon key={index} icon={icon} />
-      ))}
-    </Animated.View>
+    <View style={{ flex: 1 }}>
+      <Animated.View
+        style={[
+          styles.container,
+          {
+            transform: [{ translateX: slideAnim }],
+          },
+        ]}
+      >
+        {icons.map((icon, index) => (
+          <DraggableIcon key={index} icon={icon} />
+        ))}
+      </Animated.View>
+
+      {/* Barra inferior */}
+      <BottomNav activeTab="social" />
+    </View>
   );
 }
 
 function DraggableIcon({ icon }) {
   const position = useRef(new Animated.ValueXY()).current;
 
+
   const panResponder = PanResponder.create({
-    onMoveShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: (evt, gestureState) => {
+      // Solo activa arrastre si el dedo se mueve más de 5 px
+      return Math.abs(gestureState.dx) > 5 || Math.abs(gestureState.dy) > 5;
+    },
     onPanResponderMove: Animated.event(
       [null, { dx: position.x, dy: position.y }],
       { useNativeDriver: false }
@@ -79,9 +89,10 @@ function DraggableIcon({ icon }) {
     },
   });
 
-  // 💨 abrir enlace inmediatamente
   const handlePress = () => {
-    Linking.openURL(icon.url).catch((err) => console.error("Error:", err));
+    Linking.openURL(icon.url).catch((err) =>
+      console.error("Error al abrir el enlace:", err)
+    );
   };
 
   return (
@@ -136,4 +147,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#666",
   },
-});
+}); //redes sociales

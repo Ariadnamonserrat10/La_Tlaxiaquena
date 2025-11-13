@@ -16,7 +16,6 @@ export default function NewsCard({ news, onPress }) {
         <Text style={styles.newsTitle}>{news.title}</Text>
         <Text style={styles.newsSummary}>{news.summary}</Text>
         <Text style={styles.newsDate}>{news.date}</Text>
-        <Text style={styles.newsAuthor}>Por: {news.author}</Text>
 
         {/* Botón Ver más */}
         <TouchableOpacity style={styles.moreButton} onPress={onPress}>
@@ -74,14 +73,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   
-  //Autor de la noticia
-  newsAuthor: {
-  fontSize: 13,
-  color: '#666',
-  fontStyle: 'italic',
-  marginBottom: 5,
-},
-
   // Botón "Ver más"
   moreButton: {
     alignSelf: 'flex-start',
