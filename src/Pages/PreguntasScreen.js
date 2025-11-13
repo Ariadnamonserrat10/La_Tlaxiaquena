@@ -3,7 +3,7 @@ import { ScrollView, Text, StyleSheet } from "react-native";
 
 export default function PreguntasScreen() {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={[styles.container,{padding :30} ]}> 
       <Text style={styles.titulo}>Preguntas Frecuentes</Text>
 
       <Text style={styles.pregunta}>¿Cómo puedo cambiar mi contraseña?</Text>

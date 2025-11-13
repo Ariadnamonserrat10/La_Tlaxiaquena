@@ -4,14 +4,11 @@ export const categorias = [
   // id identificador único
   // name  nombre de la categoría
   // image  URL de la imagen que representa la categoría
-  { id: 1, name: 'Política', image: 'https://i.pinimg.com/1200x/66/86/6e/66866ec8c4035dbc4411fbefc6da4136.jpg' },
-  { id: 2, name: 'Deportes', image: 'https://i.pinimg.com/736x/b8/0c/36/b80c3618c938a9b7f59327099514d230.jpg' },
-  { id: 3, name: 'Tecnología', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=300' },
-  { id: 4, name: 'Cultura', image: 'https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=300' },
-  { id: 5, name: 'Nacional', image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800' },
-  { id: 6, name: 'Internacional', image: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=800' },
-  { id: 7, name: 'Estatal', image: 'https://i.pinimg.com/1200x/cc/f0/92/ccf092c360a3869e7c6764059bb8b140.jpg' },
-  { id: 8, name: 'Municipal', image: 'https://i.pinimg.com/1200x/16/96/0e/16960e58ee0cb22b962316083f33eae4.jpg' },
+  { id: 1, name: 'Locales', image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/1092da62-81e5-4f2a-9fcd-cad2d24ae563.jpg' },
+  { id: 2, name: 'Regionales', image: 'https://noticieroselreloj.com/wp-content/uploads/2025/09/images-3.jpeg' },
+  { id: 3, name: 'Estatales', image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Brindara-OSO-un-viaje-musical-entre-clasicos-universales-y-un-estreno-mundial-1.jpeg' },
+  { id: 4, name: 'Nacionales', image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-03-at-16.31.07-1024x658.jpeg' },
+  { id: 5, name: 'Internacionales', image: 'https://noticieroselreloj.com/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-22-at-13.23.52.jpeg' },
 ];
 
 // Se exporta un arreglo de noticias llamado noticias
@@ -27,276 +24,222 @@ export const noticias = [
 
   {
     id: 1,
-    title: 'México vence a Brasil en amistoso internacional',
-    summary: 'El equipo mexicano sorprendió a Brasil con una victoria 2-1.',
-    content: 'México jugó un partido espectacular contra Brasil y logró imponerse 2-1. El primer gol llegó a los 23 minutos gracias a un gran disparo de fuera del área, mientras que Brasil empató al minuto 60. Finalmente, México anotó el gol de la victoria al minuto 82 tras una jugada colectiva impresionante. El público celebró con entusiasmo la victoria.',
-    image: 'https://www.mundoconectado.com.br/wp-content/uploads/2024/06/Mexico-x-Brasil-onde-assistir-ao-amistoso-internacional-ao-vivo.jpg',
-    date: 'Oct 8, 2025',
-    category: 'Deportes',
+    title: 'Participa CEPCyGR en foro internacional “Tsunamis: del conocimiento a la acción” para fortalecer capacidad de respuesta',
+    summary: `Santa María Huatulco, Oax. 5 de noviembre de 2025.- Con el respaldo de laCoordinación Estatal de Protección Civil y Gestión de Riesgos de Oaxaca (CEPCyGR), se realizó este miércoles en Bahías de Huatulco, el foro internacional “Tsunamis: del conocimiento a la acción, experiencias compartidas para la reducción de riesgos”, a fin de fortalecer la preparación y capacidad de respuesta ante fenómenos de origen oceánico.`,
+    content: `En el marco del Día Mundial de Concienciación sobre Tsunamis, 5 de noviembre, el encuentro reunió a especialistas y autoridades de México y Japón en un espacio de diálogo e intercambio de conocimientos sobre acciones preventivas, educación y estrategias de preparación; que contribuyan a reducir el riesgo por fenómenos naturales en el Pacífico Mexicano.
+    Durante el foro, se abordaron temas relacionados con la evaluación del peligro, la gestión del riesgo, resiliencia comunitaria y comunicación preventiva, en el que se destacó la importancia de consolidar procesos de capacitación y cultura de prevención en zonas costeras.
+    Entre las instituciones participantes destacan el Centro Nacional de Prevención de Desastres (Cenapred), el Centro de Alerta de Tsunamis de la Secretaría de Marina, el Centro de Investigación para la Prevención de Desastres de la Universidad de Kioto, Japón, la Universidad Nacional Autónoma de México (UNAM), la Universidad de Hyogo, Japón y el Instituto México de Huatulco.
+    La CEPCyGR establece vínculos de cooperación internacional para la reducción del riesgo de desastres e impulsa una cultura de protección civil basada en el conocimiento y la acción.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/11/Participa-CEPCyGR-en-foro-internacional-Tsunamis-del-conocimiento-a-la-accion-para-fortalecer-capacidad-de-respuesta-2-1024x742.jpeg',
+    date: 'Noviembre 5, 2025',
+    category: 'Locales',
   },
   {
     id: 2,
-    title: 'Nuevo fichaje para la Liga Nacional',
-    summary: 'El Club América anuncia la incorporación de una nueva estrella.',
-    content: 'El Club América firmó un nuevo jugador estrella para fortalecer su plantilla de cara a la próxima temporada. Se espera que aporte experiencia y liderazgo al equipo, y los aficionados ya muestran gran entusiasmo.',
-    image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=400',
-    date: 'Oct 10, 2025',
-    category: 'Deportes',
+    title: 'Entre Oaxaca y Puebla la agresión armada contra «Marco Flores y La Banda Jerez»',
+    summary: 'Momentos de terror vivieron los integrantes de «Marco Flores y La Banda Jerez», la madrugada de este lunes, cuando el autobús en el que viajaban fue atacado a balazos mientras regresaban de una presentación en Tlaxiaco, Oaxaca, rumbo a Jerez, Zacatecas; específicamente en la colindancia de Oaxaca y Puebla , dijo el artista a medios nacionales',
+    content: `A través de sus redes sociales, Marco Flores denunció la inseguridad que se vive en las carreteras del país. Relató que el autobús de la agrupación recibió varios impactos de arma de fuego. Afortunadamente, ninguno de los músicos resultó herido, aunque sí se registraron daños materiales.
+    “El autobús recibió varios impactos de bala, pero gracias a Dios todos estamos bien”, señaló el cantante.
+Posteriormente, durante una entrevista con medios nacionales, Flores detalló que el ataque ocurrió en una zona alejada de la autopista, entre pueblos y barrancas, donde no hay vigilancia ni tránsito constante. “De repente empezaron a disparar de un costado y todos nos tiramos al suelo. Las balas pasaban de un lado a otro; el camión venía lleno arriba y abajo. Una bala pegó muy cerca del respaldo del chofer, pasó muy cerca de su espalda; afortunadamente lo estamos platicando”.
+También mencionó que, tras el incidente, se comunicó con el Presidente para informar lo sucedido: “Le hicimos saber lo que pasó al Presidente y nos dijo que así eran las cosas, que más no se podía hacer. Al escuchar esto, se sintió una gran impotencia, pues es algo que se vive en muchas partes del país.” Lamentó la falta de seguridad en las carreteras y la poca respuesta de las autoridades ante hechos tan graves. “Le hablé a unos amigos del gobierno, pero me dijeron que no tenían acceso a las autoridades competentes. Es triste, porque nosotros podemos hablar en los medios, pero mucha gente no tiene esa oportunidad”, agregó.
+El ataque no dejó personas lesionadas, pero sí genera preocupación entre los artistas que constantemente viajan por carretera para cumplir con sus presentaciones. “Ojalá esto sirva para que las autoridades hagan algo, porque no es justo lo que se vive”, finalizó.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/1761168251748.jpg',
+    date: 'Octubre 22, 2025',
+    category: 'Locales',
   },
   {
     id: 3,
-    title: 'Avance en inteligencia artificial',
-    summary: 'Una empresa tecnológica presenta un modelo revolucionario.',
-    content: 'Una empresa tecnológica presentó su nuevo modelo de inteligencia artificial capaz de procesar información y generar soluciones en tiempo récord. Este avance promete revolucionar la industria y abrir nuevas oportunidades de desarrollo en múltiples sectores.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400',
-    date: 'Oct 9, 2025',
-    category: 'Tecnología',
+    title: 'Congreso de Oaxaca establece nuevas formas de violencia contra las mujeres en la Ley Estatal de Acceso de las Mujeres a una Vida Libre de Violencia de Género',
+    summary: `Este avance representa un acto de justicia y de responsabilidad legislativa.
+Al robustecer el marco jurídico en la materia se contribuye a una sociedad más justa, igualitaria y libre de violencia`,
+    content: `San Raymundo Jalpan, Oax., a 22 de octubre de 2025. - Con el propósito de fortalecer el marco jurídico para proteger los derechos humanos de las mujeres, el Congreso del Estado aprobó reformar y adicionar diversas disposiciones a la Ley Estatal de Acceso de las Mujeres a una Vida Libre de Violencia de Género, para establecer las violencias: por ataques con ácido, sustancias químicas o corrosivas, la estética, por Inteligencia Artificial(IA), la reproductiva y cualquier otra forma de violencia que lesione o  dañe la dignidad, integridad, patrimonio y libertad de esta población.
+    El Proyecto de Decreto fue el resultado de la dictaminación en conjunto de cinco iniciativas por parte de la Comisión Permanente de Mujeres e Igualdad de Género que presentaron las diputadas de Morena Cecilia Olivia Cruz Merlín y Dennis García Gutiérrez, así como del Partido Verde Ecologista de México (PVEM): Melina Hernández Sosa, Eva Diego Cruz y Elvia Gabriela Pérez López.
+    El órgano legislativo en cuestión consideró que, con el paso del tiempo, las estructuras sociales, los avances tecnológicos, las nuevas dinámicas de comunicación y los procesos de globalización han propiciado escenarios donde surgen nuevas modalidades de violencia y ante esta realidad el marco jurídico no puede permanecer estático.
+    La Iniciativa de Reforma fue aprobada con 37 votos en la Sesión Extraordinaria del pasado 30 de septiembre de 2025, mediante la cual se deroga la fracción XIII y se adicionan las fracciones XIV, XV, XVI, XVII y XVIII al artículo 7, se reforma la denominación del Capítulo Tercero Bis y se adiciona el artículo 17 Quinquies a la Ley Estatal de Acceso de las Mujeres a una vida Libre de Violencia de Género.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Dip-Cecilia-Olivia-Cruz-Merlin-1024x682.jpeg',
+    date: 'Octubre  22, 2025',
+    category: 'Locales',
   },
   {
     id: 4,
-    title: 'Día De Muertos en Oaxaca',
-    summary: 'Del 26 de octubre al 3 de noviembre, Oaxaca se llena de comparsas, flores y cultura para celebrar el Día de Muertos como ninguna otra región.',
-    content: 'Durante el Día de Muertos en Oaxaca, las calles se llenan de altares, ofrendas y comparsas. Los turistas y locales disfrutan de las tradiciones que incluyen danza, música y gastronomía típica, haciendo de esta celebración una de las más representativas de México.',
-    image: 'https://www.excelsior.com.mx/770x530/filters:format(webp):quality(75)/media/pictures/2025/10/08/3395066.jpg',
-    date: 'Oct 8, 2025',
-    category: 'Cultura',
+    title: 'Se realizan recorridos en la zona de conflicto entre San Juan Mixtepec y Santo Domingo Yosoñama: buscan bases para resolver conflicto agrario',
+    summary: 'En entrevista para «Noticieros El Reloj», Carlos Pérez Campos Subsecretario de Desarrollo Democrático, anunció el inicio de los recorridos en la zona de conflicto agrario entre San Juan Mixtepec y Santo Domingo Yosoñama, una disputa que ha mantenido divididos a ambos pueblos por más de 70 años.',
+    content: `De acuerdo con el subsecretario, este acercamiento representa un hecho histórico, pues después de décadas de enfrentamientos, hoy las comunidades han decidido hermanarse y apostar por el diálogo y la paz.
+    El funcionario explicó que este proceso forma parte del Eje de Paz Territorial impulsado por el Gobernador Salomón Jara Cruz, a través de la Secretaría de Gobierno, encabezada por Jesús Romero López, dentro de la Mesa de Inteligencia Agraria, instancia que trabaja diariamente para generar acercamientos entre comunidades con conflictos sociales y agrarios.
+    Durante el recorrido participan comisiones de 25 personas por comunidad, además de representantes de la Secretaría de Gobierno, la Junta de Conciliación Agraria y Elementos de la Guardia Nacional, la Secretaría de Marina y la Policía Estatal.
+    “El objetivo es ubicar con precisión el polígono en controversia y avanzar hacia una solución pacífica”, declaró.
+    Informó que los trabajos iniciados el día de ayer miercoles veintidós de octubre registrando ya un avance del 70%, para delimitar el area en conflicto, por lo que se espera concluir este jueves y presentar los resultados a ambas comunidades en los próximos días.
+    Finalmente, reconoció el acompañamiento del Gobierno Federal, que participa en la Mesa de Inteligencia Agraria a través de la Secretaría de Gobernación y otras instituciones, sumando esfuerzos para encontrar soluciones duraderas a los conflictos agrarios en Oaxaca.
+    “Lo importante es que los pueblos están demostrando su deseo de vivir en paz y de construir un futuro mejor para sus habitantes”, concluyó.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-23-at-16.05.59-1-1024x576.jpeg',
+    date: 'Octubre  23, 2025',
+    category: 'Regionales',
   },
   {
     id: 5,
-    title: 'Defensa mantiene a 7 mil 300 elementos en la aplicación del Plan DN-III-E por lluvias',
-    summary: 'La dependencia detalló que en Veracruz se presenta el mayor despliegue operativo.',
-    content: 'La Secretaría de la Defensa Nacional mantiene a 7,300 elementos desplegados en diversas regiones de Veracruz debido a las fuertes lluvias. Se han instalado centros de ayuda y se realizan rescates en zonas afectadas, garantizando la seguridad de la población.',
-    image: 'https://www.excelsior.com.mx/770x530/filters:format(webp):quality(75)/media/pictures/2025/10/14/3398277.jpg',
-    date: 'Oct 14, 2025',
-    category: 'Nacional',
+    title: 'Realiza Ceabien ampliación del sistema de agua potable en Santiago Juxtlahuaca',
+    summary: 'La obra que se lleva a cabo en la comunidad de Tilapa forma parte de un proyecto estatal de red hidráulica que mejorará la distribución del líquido para beneficio de las familias',
+    content: `Santiago Juxtlahuaca, Oax. 10 de octubre de 2025.- El Gobierno de Oaxaca lleva a cabo la ampliación del sistema de agua potable en la comunidad de Tilapa, del municipio de Santiago Juxtlahuaca; para garantizar el acceso digno y constante al vital líquido para las familias.
+    Esta obra de infraestructura hidráulica responde a las necesidades del presente y las exigencias del futuro, toda vez que contempla acciones para la mejora en la captación, el transporte, almacenamiento y la distribución del agua; con una visión integral que prioriza la eficiencia, resiliencia y sustentabilidad.
+    El director general de la Comisión Estatal del Agua para el Bienestar (Ceabien), Neftalí Amigdael López Hernández informó que durante años esta comunidad mixteca ha enfrentado limitaciones de abastecimiento de este recurso natural; afectando la calidad de vida y el desarrollo social, por lo cual, con este proyecto se busca revertir esas condiciones.
+    «No más obras temporales o promesas incumplidas. Hoy actuamos con planes técnico sociales, alineados al bienestar de la población”, dijo.
+    La intervención en Tilapa forma parte de un proyecto estatal de red hidráulica, que se desarrolla en colaboración con las autoridades municipales, participación comunitaria y acompañamiento técnico para asegurar su funcionamiento y confianza.
+    La ampliación del sistema de agua potable tiene también impacto en la salud pública, ya que reduce riesgos de contaminación, mejora las condiciones domésticas y evita desplazamientos innecesarios de personas que buscaban acceso al vital líquido en condiciones inseguras.
+    Además de la mejora directa del servicio, estas obras tienen un fuerte componente de justicia social: responde a una demanda histórica de comunidades que han carecido de recursos en infraestructura básica.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/CEABIEN-3-3.jpeg',
+    date: 'Octubre 10, 2025',
+    category: 'Regionales',
   },
   {
     id: 6,
-    title: 'Polonia despliega aviones mientras Ucrania sufre fuertes ataques aéreos rusos',
-    summary: 'Polonia envió aviones de combate a su espacio aéreo la mañana de este domingo.',
-    content: 'Polonia envió aviones de combate a su espacio aéreo mientras Ucrania sufría intensos ataques aéreos rusos. Las fuerzas armadas polacas incrementaron la vigilancia para proteger su soberanía y brindar apoyo humanitario en caso de ser necesario.',
-    image: 'https://media.cnn.com/api/v1/images/stellar/prod/rescatista.jpeg?q=w_1160,c_fill/f_webp',
-    date: 'Septiembre 28, 2025',
-    category: 'Internacional',
+    title: 'Anuncia Sectur Oaxaca el Festival del Mole de Caderas 2025 y la Guelaguetza Ñuu Savi',
+    summary: `Anuncia #Sectur Oaxaca el #Festival del #MoledeCaderas 2025 y la Guelaguetza Ñuu Savi—
+    Estas actividades se realizarán del 10 al 12 de octubre en la capital oaxaqueña y el 11 en la Heroica Ciudad de Huajuapan de León`,
+    content: `Oaxaca de Juárez, Oax. 25 de septiembre de 2025.- El Gobierno del Estado a través la Secretaría de Turismo (Sectur) anunció el Festival del Mole de Caderas 2025 y la Guelaguetza Ñuu Savi, que se llevarán a cabo del 10 al 12 de octubre en Oaxaca de Juárez y la Heroica Ciudad de Huajuapan de León.
+    El festival iniciará en la capital oaxaqueña del 10 al 12 de octubre, durante estos tres días el público podrá visitar 20 stands gastronómicos y 5 de artesanías, además disfrutará un programa artístico que enaltece las tradiciones de la región. Estas actividades se desarrollarán de 12:00 a 18:00 horas en la Plaza de la Danza.
+    El 11 de octubre a partir de las 13:00 horas, el Recinto Ferial de Huajuapan será sede simultánea del festival y de la Guelaguetza Ñuu Savi.
+    Al respecto, la titular de la Sectur Oaxaca, Saymi Pineda Velasco destacó que, durante esta temporada, la capital del estado espera una ocupación hotelera del 52.98 por ciento, con la llegada de 12 mil 307 turistas y una derrama económica de poco más de 66 millones de pesos; mientras que, en Huajuapan de León, se estima la llegada de 11 mil 831 visitantes quienes dejarán ingresos aproximados a los 18 millones de pesos.
+    Asimismo, informó que este año se suman actividades coordinadas con las secretarías de las Culturas y Artes de Oaxaca (Seculta) y de Desarrollo Económico (Sedeco), así como, con los institutos de Lenguas Originarias de Oaxaca (ILEO) y del Deporte (Indeporte).
+    Estas festividades abonan a otras que favorecen la riqueza de la región Mixteca:  el 12 de octubre se efectuará el Festival de la Barbacoa y Cerveza Artesanal en Villa Tejúpam de la Unión; el Concierto de Música Tradicional en la Capilla Abierta de San Pedro y San Pablo Teposculula y el Rodeo de la Mixteca en Huajuapan de León; mientras que el día 18 se efectuará el Festival del Mole Negro en Tlaxiaco.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/09/Anuncia-Sectur-la-llegada-del-Festival-del-Mole-de-Caderas-2025-y-la-Guelaguetza-Nuu-Savi-3.jpeg',
+    date: 'Septiembre 25, 2025',
+    category: 'Regionales',
   },
   {
     id: 7,
-    title: 'Temblor en Oaxaca',
-    summary: 'Se registra sismo de 4.3 en Matías Romero.',
-    content: `Un sismo de magnitud 4.3 se registró en Matías Romero, Oaxaca. Las autoridades locales monitorean la situación y han emitido recomendaciones de seguridad a la población para evitar incidentes.
-
-De acuerdo a lo que informa el Servicio Sismológico Nacional (SSN) a través de sus canales oficiales, un sismo es el rompimiento de las rocas en el interior de la Tierra, esta ruptura violenta provoca una liberación repentina de energía acumulada, que se propaga en forma de ondas sísmicas en todas las direcciones. Esta energía liberada es la que sentimos como un temblor o terremoto.
-
-El sismo se originó a las 03:16 horas de este martes, con epicentro a 12 kilómetros al sureste de Matías Romero, Oaxaca, y a una profundidad de 5 kilómetros, según datos del SSN.
-
-Hasta el momento, no se reportan daños materiales ni personas lesionadas a consecuencia del temblor.
-
-Las autoridades locales y estatales han activado los protocolos de seguridad y monitorean la situación para garantizar la seguridad de los habitantes de la región.
-
-Se recomienda a la población mantenerse informada a través de fuentes oficiales y seguir las indicaciones de las autoridades en caso de réplicas o emergencias.
-
-Asimismo, se recuerda la importancia de contar con un plan de emergencia familiar y tener a la mano un kit de supervivencia en caso de desastres naturales.
-
-**Información extra que quieras agregar:**  
-- Recomendaciones de protección civil.  
-- Consejos para resguardar objetos importantes.  
-- Medidas preventivas para animales domésticos.  
-- Reportes de centros de atención locales.`,
-
-    image: 'https://www.infobae.com/resizer/v2/6FEUQO4LGRFYZGNBS7TRSM5SO4.jpg?auth=82f20c7f1645192d8e68a4f378b497ba3e1ec2f028a523ef9a6256964013ce3e&smart=true&width=992&height=558&quality=85',
-    date: 'Oct 14, 2025',
-    category: 'Estatal',
+    title: 'Construye Salomón Jara centro de inteligencia para consolidar un Oaxaca seguro',
+    summary: `Construye Salomón Jara #centro de #inteligencia para consolidar un #Oaxacaseguro—
+El Gobernador del Estado supervisó esta obra pública que tiene un avance del 78.72 %
+Visitó zonas donde se edifican: Casa de Transición del DIF, Parque Lineal y modernización de avenida Valerio Trujano y Riveras de Río Atoyac; en Oaxaca de Juárez y Xoxocotlán`,
+    content: `Oaxaca de Juárez, Oax. 26 de octubre de 2025.- El Gobernador Salomón Jara Cruz supervisó el avance en la construcción del Centro de Control, Comando, Comunicación, Coordinación e Inteligencia (C5I), obra de infraestructura que colocará a Oaxaca a la vanguardia en las tareas de seguridad pública, con tecnología de primera generación que permitirá reducir los delitos.
+    Durante el recorrido por este inmueble, el Mandatario estatal aseveró que para el Gobierno de la Primavera Oaxaqueña, la salvaguarda de las familias es una prioridad, toda vez que no puede haber desarrollo sin paz.
+    En este sentido, señaló que este esfuerzo se suma al fortalecimiento de las policías municipales, con: capacitación, certificación y equipamiento; que se han brindado desde el inicio de su administración, y que consolidan a Oaxaca como el quinto estado más seguro del país.
+    Con una inversión de 398 millones 412 mil 236 pesos, el C5I se construye sobre una superficie total de 4 mil 11 metros cuadrados, incluirá 110 pantallas en videowall, área de operadores del número de emergencias 9-1-1 y de denuncia anónima 089; urgencias médicas y estación de drones.
+    Este complejo ubicado en la esquina de avenida Eduardo Mata con prolongación de Xicoténcatl, registra un avance del 78.72 por ciento en su edificación, incluye las direcciones de Tecnologías, Análisis y Policía Cibernética, entre otros.
+    Moderniza Zona Metropolitana de Oaxaca con infraestructura pública
+    Además, el Gobernador de Oaxaca recorrió diversas Obras Primavera que se realizan en el municipio de Oaxaca de Juárez, entre las que destaca la Casa de Transición del Sistema DIF Oaxaca, la primera en su tipo en el país, en la cual se atenderá a mujeres adolescentes que se encuentran en acogimiento residencial.
+    La construcción, que actualmente está al 89 por ciento; es financiada con recursos por 5.3 millones de pesos. El inmueble con capacidad para albergar a 10 jóvenes, dispondrá de habitaciones, 5 baños, cocina, comedor, lavandería, sala de estar, patio central y corredores; sobre una superficie de 297 metros cuadrados.
+    Jara Cruz visitó, también, los trabajos que se realizan para la rehabilitación integral de la calzada Valerio Trujano, la cual presenta un avance del 76 por ciento. En esta obra, en la que se emplean 77 millones 820 mil 320 pesos, se pavimentan con concreto 875.84 metros lineales, en la cual habrá banquetas y señalización preventiva y restrictiva.
+    La intervención a esta vialidad incluye renovación de luminarias, de las redes de distribución de agua potable y drenaje; y de los sistemas eléctricos y de telefonía.
+    En otro punto, el Gobernante oaxaqueño acudió a la zona donde se instala el Parque Lineal Riveras del Atoyac, sobre una superficie de 35 mil metros cuadrados. Ahí se contempla una trotapista y ciclovía, conexiones peatonales, áreas de recreación, canchas de usos múltiples y gimnasio al aire libre.
+    En una primera etapa, este camino será modernizado en una longitud de 3.1 kilómetros de vialidad, en el cual se dispondrá de banquetas, arbolado y ciclovía. Estos trabajos tienen, actualmente, un avance del 43 por ciento.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Construye-Salomon-Jara-centro-de-inteligencia-para-consolidar-un-Oaxaca-seguro-1-1024x682.jpeg',
+    date: 'Octubre 26, 2025',
+    category: 'Estatales',
   },
 
   {
     id: 8,
-    title: 'Presentarán libro sobre Palmeadoras de Tlaxiaco',
-    summary: 'Es una investigación que hizo el maestro Tomás Ortega Ortega del colegio de posgraduados.',
-    content: 'El libro sobre Palmeadoras de Tlaxiaco recoge tres años de investigación del maestro Tomás Ortega Ortega, destacando la historia, técnicas y tradiciones de esta comunidad. La presentación será un evento cultural importante en la región.',
-    image: 'https://www.diariodelamixteca.com/wp-content/uploads/2018/06/tortillas.jpg',
-    date: 'Junio 8, 2018',
-    category: 'Municipal',
+    title: 'Invita Sectur Oaxaca a eventos de la “Fiesta Más Viva de Todas” en Valles Centrales y Costa',
+    summary: 'Oaxaca de Juárez, Oax. 24 de octubre de 2025.- El Gobierno del Estado a través de la Secretaría de Turismo (Sectur Oaxaca) dio a conocer que, para “La Fiesta más Viva de Todas” se realizarán diversas actividades en varios municipios de los Valles Centrales y la Costa.',
+    content: `La subsecretaria de Operación Turística, Mariel López Villatoro, en representación de la secretaria de Turismo, Saymi Pineda Velasco destacó que esta es una de las festividades más importantes de la entidad y se celebra con muerteadas, comparsas, muestras gastronómicas y artesanales.
+    En Soledad Etla, del 25 de octubre al 8 de noviembre, habrá diversas presentaciones, concursos y talleres; donde también destacan las muerteadas: El Imponente Barrio de Abajo, El Majestuoso Barrio de Arriba y  Los Reyes Matadamas.
+    En el barrio de Cinco Señores en Oaxaca de Juárez, el 30 de octubre se celebrará la Comparsa Catrinas 2025 a las 21:00 horas, y el 1 de noviembre, la Tradicional Comparsa Cinco Señores, a partir de las 19:00 horas. 
+    En San Agustín Etla, el 1 de noviembre se presentará la banda “La Universal, la de los Carnales” en el Barrio de San José, a partir de las 20:00 horas.
+    Asimismo, los días 1 y 2 de noviembre, en Guadalupe Etla tendrá lugar El Padre de las Muerteadas; y en Santiaguito Etla, Los Hijos de la Muerteada, a partir de las 17:00 horas.
+    El 2 de noviembre, nuevamente en el Barrio de Cinco Señores se efectuará la Comparsa de Muertos Infantil 2025, saliendo frente al mural en la calle Prolongación de la Noria a las 17:00 horas y el 16 de noviembre, la Octava Comparsa de Muertos Femenil y de Diversidad, desde el mismo punto a las 20:00 horas.
+    También habrá actividades en San Jerónimo Yahuiche de Santa María Atzompa, Santiago Suchilquitongo, San Andrés Zautla, San Felipe Tejalápam, San Lorenzo Cacaotepec, Villa de Etla y su comunidad Santo Domingo Barrio Alto, Soledad Etla, Tlacolula de Matamoros y San Antonio Arrazola en Santa Cruz Xoxocotlán.
+    Así como en Villa de Zaachila, San Antonino Castillo Velasco, Puerto Escondido en San Pedro Mixtepec, Río Grande en Villa de Tututepec de Melchor Ocampo y Santa María Huatulco.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Anuncia-Sectur-Oaxaca-eventos-de-la-Fiesta-Mas-Viva-de-Todas-en-Valles-Centrales-y-Costa-1-1024x606.jpeg',
+    date: 'Octubre 25, 2025',
+    category: 'Estatales',
   },
   {
     id: 9,
-    title: 'La UIF tuvo 10 denuncias contra funcionarios aduanales en el gobierno de AMLO',
-    summary: 'El director general del Instituto Mexicano de la Propiedad Industrial (IMPI), Santiago Nieto dio a conocer que durante su periodo al frente de la Unidad de Investigación Financiera (UIF) le llegaron denuncias por huachicol fiscal.',
-    content: `Reporteros le preguntaron si durante su gestión, en el gobierno del expresidente Andrés Manuel López Obrador, se investigaron casos de huachicol, a lo que Nieto confirmó que recibieron denuncias contra al menos 10 agentes aduanales.
-“Hubo por lo menos 10 denuncias que se presentaron en ese momento que me tocó a mí, relacionados con administradores aduanales o agentes aduanales vinculados con el posible huachicol fiscal”, declaró sin ahondar en el asunto.`,
-    image: 'https://politicomx-politicomx-prod.web.arc-cdn.net/resizer/v2/WAMRAUYTWZC6HPP6CMRVED6QOA.jpg?auth=0b76c9a6359b34b628befbf4ef170d4506bd7110ec9066a2e369d53866614b1c&quality=55&width=1200&height=800',
-    date: 'Octubre 15,2025',
-    category: 'Política',
+    title: 'Promueve Gobierno de Oaxaca inclusión y respeto a derechos de personas de talla baja',
+    summary: 'Oaxaca de Juárez, Oax. 25 de octubre de 2025.- En el marco del Día Mundial de las Personas de Talla Baja, que se conmemora cada 25 de octubre, el Gobierno del Estado llevó a cabo diversas actividades para promover los derechos humanos, visibilizar las barreras que enfrenta este sector y fomentar una cultura de respeto y no discriminación.',
+    content: `La titular de la Coordinación para la Atención de los Derechos Humanos (CADH), Flor Estela Morales expresó que como parte de la estrategia territorial “Conciencia Itinerante”, se llevó a cabo una jornada informativa para sensibilizar sobre el uso de un lenguaje respetuoso, erradicar prácticas de exclusión y violencia hacia estas personas.
+    También se realizó la exposición de carteles “Derechos Humanos de las Personas de Talla Baja en Oaxaca” y una muestra gráfica con datos sobre este sector, que permanecerá abierta al público en el patio central del Ayuntamiento de Oaxaca de Juárez.
+    El programa incluyó la presentación del “Escalón de la conciencia”, una instalación simbólica que visibiliza las barreras estructurales presentes en los entornos y objetos cotidianos, que dificultan que las personas de talla baja ejerzan sus derechos o realicen actividades diarias.
+    Asimismo, las instalaciones del Palacio de Gobierno, Palacio municipal de Oaxaca de Juárez y de la Corporación Oaxaqueña de Radio y Televisión (Cortv) serán iluminados de color verde este sábado 25 de octubre, como símbolo de esperanza, visibilidad y compromiso con la inclusión.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/Conmemora-Gobierno-de-Oaxaca-el-Dia-Mundial-de-las-Personas-de-Talla-Baja-1.jpeg',
+    date: 'Octubre 25,2025',
+    category: 'Estatales',
   },
   {
     id: 10,
-    title: 'Morena aumenta el costo de museos y uso de aguas nacionales para 2026',
-    summary: 'Diputados aprueban alza de hasta 118% en cuotas de la Ley Federal de Derechos: suben trámites migratorios, museos y uso de agua.',
-    content: 'La Cámara de Diputados aprobó en lo general las modificaciones a la Ley Federal de Derechos (LFD), una medida que eleva de forma significativa las cuotas que cobra el Estado por el uso de bienes y la prestación de servicios.En lo general: Diputados de Morena y sus aliados aprobaron la iniciativa con 355 votos a favor y 132 en contra, con el objetivo de aumentar la recaudación federal.',
-    image: 'https://politicomx-politicomx-prod.web.arc-cdn.net/resizer/v2/E3EQNLJ2PVGN3CYGY6U5NTCDOQ.png?auth=eef44700769ff8dd57aa0ff193dfa072b7c0f85b00dd516d848deead8aa58672&quality=55&width=1200&height=739',
-    date: 'Octubre 15,2025',
-    category: 'Política',
+    title: 'El ministro Irving Espinosa destaca que no pueden imponerse sanciones por delitos no previstos expresamente en la ley',
+    summary: 'Tlaxiaco, Oax a 8 de octubre de 2025.- Durante la sesión del Pleno de la Suprema Corte de Justicia de la Nación (#SCJN), el ministro Irving Espinosa Betanzo señaló que las sanciones penales deben imponerse únicamente cuando la ley las establece de manera clara y precisa, especialmente tratándose de personas adolescentes.',
+    content: `Al analizar el Amparo Directo en Revisión 457/2025, el ministro expuso que no puede aplicarse una medida de internamiento por analogía o por similitud entre delitos, pues ello contraviene el principio constitucional de legalidad penal.
+    Explicó que los delitos de pederastia y violación sexual no son equivalentes, ya que protegen bienes jurídicos diferentes: mientras la violación tutela la libertad sexual de las personas, la pederastia protege el desarrollo sano y psicosexual de niñas, niños y adolescentes.
+    Asimismo, enfatizó que el respeto a los principios de legalidad y tipicidad garantiza la certeza jurídica y evita la aplicación arbitraria de sanciones, fortaleciendo un sistema de justicia penal para adolescentes más justo y conforme a la Constitución.
+    Con la postura ante el pleno de la SCJN, el ministro Espinosa Betanzo reafirmó su compromiso con la defensa de los derechos de la infancia y adolescencia.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/7a442b14-46b3-4b25-a998-676c2a23735a-1024x682.jpg',
+    date: 'Octubre 8,2025',
+    author: 'Ramón Ramírez Gutiérrez',
+    category: 'Nacionales',
   },
   {
     id: 11,
-    title: 'Destape de candidato del Verde en Querétaro pondría en riesgo alianza con Morena',
-    summary: 'El Partido Verde destapó a su diputado federal Ricardo Astudillo como un fuerte aspirante a la candidatura para el gobierno estatal',
-    content: `En la 4T hay más dudas que certezas cuando se trata de las candidaturas rumbo a las elecciones 2027.
-Y es que parece que a quien se la están poniendo muy difícil es a Santiago Nieto, quien según fuentes de Político MX
-nada más no renuncia a su aspiración a la candidatura de Morena a la gubernatura de Querétaro.
-
-Resulta que el Partido Verde destapó a su diputado federal Ricardo Astudillo como un fuerte aspirante a la candidatura para el gobierno estatal, lo que de manera automática pondría en riesgo la coalición cuatrotera.`,
-    image: 'https://politicomx-politicomx-prod.web.arc-cdn.net/resizer/v2/F6YLSMMJ3VAFRDNCHJSJGPWSZY.jpg?auth=b336a910a5ffeedd6ce004a32f6fcfc51774216a7f5a030f7bec880aaf708777&quality=55&width=1200&height=750',
-    date: 'Octubre 14,2025',
-    category: 'Política',
+    title: 'Hugo Aguilar Ortiz Anuncia una Corte Suprema de «Puertas Abiertas»',
+    summary: 'Tlaxiaco, Oax., a 3 de octubre de 2025.- En un encuentro cercano con representantes de los medios de comunicación, el ministro presidente de la Suprema Corte de Justicia de la Nación (#SCJN), Hugo Aguilar Ortiz, delineó la filosofía de su administración, basada en la #transparencia, la cercanía con la ciudadanía y una eficiencia renovada, al tiempo que reportó un significativo aumento en la productividad durante sus primeros 30 días al frente del máximo tribunal.',
+    content: `Aguilar Ortiz inició su intervención reconociendo el papel fundamental de los medios de comunicación como un puente indispensable entre la Corte y la sociedad. «Si nosotros no transmitimos bien lo que estamos haciendo, aunque lo hagamos con la mejor buena fe, se puede entender mal», afirmó, subrayando la apuesta de la Nueva Suprema Corte por una comunicación clara y constante .
+    Como parte de esta nueva estrategia, el ministro presidente anunció la puesta en marcha de un curso de capacitación para periodistas. Este curso, de carácter interactivo, buscará explicar los conceptos jurídicos fundamentales y los mecanismos de funcionamiento del Pleno de la Corte, con el objetivo de que la cobertura informativa sea más precisa y profunda.
+    Más allá de los principios, Aguilar Ortiz presentó datos concretos sobre el desempeño de la Corte en su primer mes. Destacó que, funcionando exclusivamente en Pleno, se ha logrado una productividad de 12 casos resueltos por sesión, con un total de 116 casos resueltos entre el 11 de septiembre y el 1 de octubre. Esta cifra, según explicó, es comparable e incluso supera la productividad histórica del Pleno cuando funcionaba junto con las Salas, lo que demuestra una eficiencia operativa sin precedentes recientes .
+    En el ámbito de la atención al público, el reporte fue igualmente alentador. La apertura de las antiguas Casas de la Cultura Jurídica, ahora rebautizadas como «Casas de los Saberes Jurídicos», ha resultado en un incremento del 1,300% en la atención ciudadana. «La ciudadanía realmente tiene confianza en la nueva Corte», aseguró Aguilar Ortiz, enfatizando que cualquier persona o grupo será recibido previa cita, sin necesidad de recurrir a manifestaciones para ser escuchado.
+    Hugo Aguilar Ortiz concluyó su intervención con un mensaje de unidad y confianza en el futuro de México. «Estamos en el mismo barco que se llama México… creo que estamos en la oportunidad de lograrlo juntos», expresó, reafirmando su instrucción a todas las áreas de la Corte para trabajar de la mano con los medios de comunicación bajo un principio de «puerta abierta, total transparencia y acceso libre a la información».
+    Con estas acciones, la Nueva Suprema Corte bajo el liderazgo de Aguilar Ortiz busca no solo ser más eficiente, sino también una institución más humana, accesible y comprensible para todos los mexicanos.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-03-at-16.31.07-1024x658.jpeg',
+    date: 'Octubre 3,2025',
+    author: 'Ramón Ramírez Gutiérrez',
+    category: 'Nacionales',
   },
   {
     id: 12,
-    title: 'Mundial Sub-20: Marruecos y Argentina disputarán final inédita',
-    summary: 'Marruecos y Argentina disputarán la final del Mundial Sub-20 Chile 2025, luego de imponerse respectivamente a Francia y Colombia en la ronda previa.',
-    content: `La selección sub-20 de Marruecos alargó este miércoles el momento dulce del país en el fútbol al clasificarse para la final del Mundial juvenil que transcurre en Chile tras imponerse a Francia por 5-4 en una tanda de penaltis.
-Argentina se impuso a Colombia por 1-0 este miércoles en las semifinales del Mundial Sub-20 en Chile, en un partido jugado en el estadio Nacional de Santiago en el que hizo gala de su efectividad y solidez, y avanzó a la final del torneo, en la que ante Marruecos buscará el próximo domingo su séptimo título en la categoría.
-Será la segunda vez en 20 años que un equipo africano juegue una final, y como en 2005, lo hará frente a Argentina. En aquella ocasión Lionel Messi marcó un doblete para derrotar a Nigeria.`,
-    image: 'https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2025%2F1016%2Fr1560805_1296x729_16%2D9.jpg&w=570&format=jpg',
-    date: 'Octubre 15, 2025',
-    category: 'Deportes',
+    title: 'La Nueva Suprema Corte atrae su primer caso tras audiencia ciudadana con jubilados del IMSS',
+    summary: 'Ciudad de México, 2 de octubre de 2025. En una decisión que marca el inicio de su nueva etapa, el Pleno de la Suprema Corte de Justicia de la Nación (#SCJN) atrajo este miércoles su primer caso derivado de una audiencia de atención ciudadana: la demanda de jubilados del IMSS que exigen la devolución de recursos acumulados en sus cuentas de cesantía en edad avanzada y vejez, así como cuotas sociales.',
+    content: `La resolución se produce después de que el 22 de septiembre, en el marco de la nueva política de apertura de la Corte, ministras y ministros recibieran en audiencia a representantes del Movimiento Jubilados Pie de Lucha, quienes durante años han reclamado la devolución de los ahorros depositados en sus cuentas individuales como extrabajadores del Instituto Mexicano del Seguro Social.
+    Los jubilados del IMSS sostienen que el dinero administrado por las Afores es de su propiedad, tal como establece el artículo 169 de la Ley del Seguro Social, y no del gobierno o las instituciones financieras. Su lucha se dirige contra la jurisprudencia 185/2008 de la extinta Segunda Sala de la Corte, que estableció que los trabajadores jubilados bajo el régimen de jubilaciones y pensiones (RJP) no tienen derecho a la devolución de los recursos acumulados en su cuenta individual de cesantía en edad avanzada y vejez (CAAV), argumentando que esta disposición atenta contra sus derechos humanos.
+    El 22 de septiembre, alrededor de 550 integrantes de este movimiento se manifestaron frente a la SCJN, provenientes de 14 estados del país, confiando en que la nueva integración de la Corte, encabezada por el ministro Hugo Aguilar Ortiz, resolvería alrededor de una veintena de expedientes con sus demandas que habían permanecido sin respuesta desde 2019.
+    En su sesión ordinaria del 2 de octubre, la Nueva Corte también decidió atraer otros casos que le permitirán examinar temas fundamentales de derechos humanos. En materia de derechos de las personas trans, la SCJN estudiará aspectos relativos al pago de cuotas de recuperación como condicionante para acceder a tratamientos de reasignación de sexo en los servicios de salud en Jalisco. Además, reasumió la competencia para evaluar si en Aguascalientes es válido exigir un juicio para que las personas trans puedan ver reconocida legalmente su identidad de género.
+    La nueva integración de la Corte, caracterizada por su paridad de género -cinco ministras y cuatro ministros- y la elección popular de sus miembros, enfrenta el reto de abordar un rezago histórico de casos mientras busca fortalecer la transparencia y generar cercanía con la ciudadanía.
+    Los casos resueltos en esta sesión -Solicitudes de Ejercicio de la Facultad de Atracción 467/2025 y 486/2025, y Solicitudes de Reasunción de Competencia 73/2025 y 65/2025- marcan el inicio de una nueva era en la justicia mexicana, donde la Corte se enfrenta al desafío de equilibrar su autonomía judicial con las demandas sociales en un contexto de mayor apertura ciudadana.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/10/IMG-20251002-WA0049-1024x682.jpg',
+    date: 'Octubre 2, 2025',
+    category: 'Nacionales',
   },
   {
     id: 13,
-    title: 'Innovación y competencia: lecciones del Nobel para el futuro económico de México',
-    summary: 'En 2025, el Premio Nobel de Ciencias Económicas fue otorgado a los destacados académicos Joel Mokyr, Peter Howitt y Philippe Aghion.',
-    content: `Mokyr fue reconocido por sus estudios sobre los factores históricos que permitieron el despegue tecnológico sostenido. Aghion y Howitt, por su parte, fueron distinguidos por desarrollar un modelo de crecimiento basado en la "destrucción creativa", concepto originalmente propuesto por Joseph Schumpeter.
-    En su libro The Power of Creative Destruction, Aghion describe que el crecimiento sostenido se basa en un proceso continuo de innovación, que implica que nuevas empresas, productos e ideas reemplazan a los anteriores, gracias a mejoras de productividad. El “ventarrón” de la destrucción creativa, como lo definió Schumpeter.`,
-    image: 'https://s.yimg.com/ny/api/res/1.2/GozHcxdhJPcUZp0FJpkALw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD02OTk7Y2Y9d2VicA--/https://media.zenfs.com/es/el_economista_434/28facf02827f0bced71d80bcfdf56c8a',
-    date: 'Octubre 15,2025',
-    category: 'Tecnología',
+    title: 'Tragedia Aérea en India – Vuelo AI171 de Air India se Estrella Tras Despegar',
+    summary: 'Tlaxiaco, Oax. a 12 de junio de 2025.- Un avión de Air India, el vuelo AI171 con destino a Londres Gatwick, se estrelló minutos después de despegar del Aeropuerto Internacional Sardar Vallabhbhai Patel en Ahmedabad, India. El Boeing 787-8 Dreamliner, que transportaba a 242 personas (230 pasajeros y 12 tripulantes), cayó en el área residencial de Meghani Nagar, provocando un incendio masivo y una gran cantidad de víctimas.',
+    content: `Según los reportes, al menos 294 personas fallecieron, incluyendo pasajeros y residentes de la zona impactada. Entre los sobrevivientes confirmados está Vishwashkumar Ramesh, un pasajero británico de 40 años ubicado cerca de una salida de emergencia (asiento 11A), quien relató que el accidente ocurrió «30 segundos después del despegue».
+    Más de 50 heridos fueron trasladados a hospitales, mientras equipos de emergencia trabajaban entre los escombros. Investigadores de EE.UU. (NTSB) y Reino Unido (AAIB) se unieron a la investigación.
+    El primer ministro indio, Narendra Modi, expresó su «dolor indescriptible», mientras que el presidente estadounidense Donald Trump calificó el suceso como «uno de los peores accidentes en la historia de la aviación».
+    Aunque no hay conclusiones oficiales, expertos sugieren que una configuración incorrecta de los flaps (superficies de control) durante el despegue pudo ser un factor clave. Las condiciones climáticas eran estables, descartando influencia meteorológica.
+    Air India habilitó líneas de atención para familiares y organizó vuelos de apoyo desde Delhi y Mumbai. Tata Group, propietario de la aerolínea, anunció compensaciones de 1 crore de rupias (≈ £86,000) por cada víctima.
+    La tragedia del AI171 conmocionó al mundo, reavivando debates sobre seguridad aérea y protocolos de emergencia. La investigación, aún en curso, busca respuestas para prevenir futuros desastres.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/06/crop-w1438-h1200-ap25163545251931-c1dec9f7-focus-0.59-min0.22-608-342.jpg',
+    date: 'Junio 12,2025',
+    category: 'Internacionales',
   },
   {
     id: 14,
-    title: 'WhatsApp prepara uno de los mayores cambios en su historia reciente',
-    summary: 'Meta busca homologar sus aplicaciones y proteger los datos de sus usuarios con este gran cambio',
-    content: `¿Quieres comunicarte con una persona a través de WhatsApp, pero aún no estás listo para dar un número telefónico?
-     Esta función está por llegar a WhatsApp. 
-     Bien sea que se trate por seguridad, por una relación profesional o por cualquiera que sea la razón, la aplicación de mensajería permitirá comunicarse sin necesidad de compartir un número telefónico, 
-    utilizando nombres de usuarios personales.
-    El cambio permitirá reforzar la privacidad de los usuarios e implementar un modelo de mensajería anónima.
-    Al igual que en algunas redes sociales, la aplicación permitiría crear un identificador único precedido de una arroba bajo el formato "@usuario". 
-    Este formato alineará a WhatsApp con el resto de aplicaciones de Meta como Instagram o Facebook.`,
-    image: 'https://www.informador.mx/__export/1760379084340/sites/elinformador/img/2025/10/13/whatsapp_actualizacixn.jpg_1998947079.jpg',
-    date: 'Octubre 13,2025',
-    category: 'Tecnología',
+    title: 'El Gran Apagón Europeo: Millones de Personas Afectadas por un Colapso Eléctrico Sin Precedentes',
+    summary: 'Europa enfrentó ayer uno de los mayores apagones eléctricos de su historia moderna, dejando a millones de personas sin suministro de energía durante horas y generando caos en el transporte, los servicios esenciales y las comunicaciones. Las causas del fallo masivo aún se investigan, aunque las primeras hipótesis apuntan a una sobrecarga en el sistema interconectado, agravada por problemas técnicos en varias centrales eléctricas.',
+    content: `El apagón comenzó en las primeras horas de la tarde, afectando inicialmente a países como Alemania, Francia, Italia y España, para luego extenderse a otras naciones de la Unión Europea. Las redes eléctricas interconectadas, diseñadas para garantizar estabilidad, habrían colapsado ante un fallo en cascada, según explicaron fuentes del Ente Europeo de Redes de Transporte de Electricidad (ENTSO-E).
+    En ciudades como París, Berlín y Madrid, el corte dejó a oscuras barrios enteros, interrumpió el metro y provocó el cierre temporal de aeropuertos. Los hospitales funcionaron con generadores de emergencia, mientras las autoridades instaban a la calma.
+    Los gobiernos europeos activaron protocolos de emergencia, y la Comisión Europea anunció una investigación exhaustiva. «Es inaceptable que un fallo técnico paralice media Europa. Exigimos transparencia y soluciones inmediatas», declaró la presidenta de la Comisión, Ursula von der Leyen.
+    Mientras, la ciudadanía enfrentó dificultades: supermercados cerraron, los semáforos dejaron de funcionar y muchas personas quedaron atrapadas en ascensores. Las redes sociales se llenaron de testimonios sobre el caos, aunque también de muestras de solidaridad.
+    Expertos señalan que la transición energética, con una mayor dependencia de fuentes renovables intermitentes, podría haber influido. Otros apuntan a un ciberataque no descartado, aunque no hay confirmación oficial. Las compañías eléctricas prometieron restablecer el servicio por completo en las próximas horas, pero advirtieron sobre posibles nuevos cortes controlados.
+    El apagón reabre el debate sobre la seguridad energética europea en un contexto de crisis geopolítica y altos precios de la electricidad. Mientras, millones esperan que no se repita una noche tan oscura.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2025/04/17458397318016-1024x683.jpg',
+    date: 'Abril 29,2025',
+    category: 'Internacionales',
   },
   {
     id: 15,
-    title: 'Un museo vivo: Experiencias y arte en el Cabañas',
-    summary: 'El museo celebra el mes con exposiciones, talleres, charlas y actividades comunitarias que combinan creatividad y experiencias para todas las edades',
-    content: `El Museo Cabañas celebra el mes de octubre con una programación amplia y diversa que combina arte contemporáneo, 
-    patrimonio histórico, reflexión social y participación comunitaria. Bajo el lema de un museo vivo, abierto al diálogo, 
-    la experimentación y la inclusión, las actividades están diseñadas para invitar a públicos de todas las edades a explorar el arte desde múltiples perspectivas,
-     generando espacios de encuentro, aprendizaje y disfrute estético.`,
-    image: 'https://www.informador.mx/__export/1760270524763/sites/elinformador/img/2025/10/12/orozco_crop1760270308763.jpg_1970638775.jpg',
-    date: 'Octubre 12,2025',
-    category: 'Cultura',
+    title: 'Destaca Oaxaca en las nominaciones de los Food and Travel Reader Awards 2024',
+    summary: `Destaca Oaxaca en las nominaciones de los #Food and #Travel #Reader #Awards 2024
+•     Puerto Escondido está nominado como Mejor Destino de México y Oaxaca como Mejor Destino Gastronómico de México`,
+    content: `Oaxaca de Juárez, Oax. 26 de noviembre de 2024.- La Secretaría de Turismo del Estado (Sectur Oaxaca) dio a conocer que, la entidad destaca en las #nominaciones de los premios Food and Travel Reader Awards 2024, por lo que desde esta fecha y hasta el 13 de enero de 2025, se puede votar en la página https://foodandtravel.mx/food-and-travel-reader-awards/votaciones/
+    Asimismo, Puerto Escondido está nominado como Mejor destino de México y Oaxaca como Mejor Destino Gastronómico de México, además de restaurantes, hoteles y experiencias turísticas.
+    Algunos negocios como Crudo, restaurante incluido en la Guía Michelin 2024, fue nominado como Mejor Restaurante del Interior de la República, mientras que Casa Oaxaca El Restaurante, también en la Guía Michelin 2024, recibió la nominación como Mejor Restaurante Consolidado de México.
+    Como Mejor Restaurante Sustentable de México están nominados: Alfonsina -un restaurante con el Bib Gourmand de Michelin, que es un reconocimiento de la guía Michelin-  y Levadura de Olla -con Una Estrella Michelin-
+    En la categoría Mejor Hotel Urbano en México se ubica Otro Oaxaca; en la de Mejor Hotel Boutique de Playa está nominado Ennea, de Puerto Escondido y en la Mejor Propuesta Turística Socialmente Responsable aparece nominado Camino Copalita.
+    Los premios contemplan 31 categorías: 13 de gastronomía y 18 de turismo y los candidatos fueron elegidos por un panel de 63 expertos en la industria de la hospitalidad, junto con el consejo editorial de Food and Travel México.`,
+    image: 'https://noticieroselreloj.com/wp-content/uploads/2024/11/Destaca-Oaxaca-en-las-nominaciones-de-los-Food-and-Travel-Reader-Awards-2024-5-1024x1280.jpg',
+    date: 'Noviembre 26,2024',
+    author: 'Noemi Garcia Reyes',
+    category: 'Internacionales',
   },
-  {
-    id: 16,
-    title: '"Lo que no quería era ser nadie": Premio Nobel de Literatura',
-    summary: 'Krasznahorkai dijo sentirse "muy feliz" por el premio y "tranquilo y muy nervioso a la vez". "Es el primer día de mi vida como ganador del premio Nobel. No sé qué va a ocurrir en el futuro", afirmó.',
-    content: `El escritor húngaro László Krasznahorkai, galardonado este jueves con el Nobel de Literatura 2025, confesó este jueves que su motivación inicial para dedicarse a la escritura era convertirse en alguien conocido.
-    Krasznahorkai relató en conversación telefónica que años después de publicar su primera novela, sintió que no era perfecta y que quería mejorar su estilo, por lo que decidió escribir otro libro, un proceso que se fue repitiendo de forma sucesiva. "Mi vida es una corrección permanente", declaró el autor húngaro. `,
-    image: 'https://www.informador.mx/__export/1760038904255/sites/elinformador/img/2025/10/09/c32d6bf5d7ba9794cc75de12fbbac8195811cfbe_version1760038902273.jpg_1292519059.jpg',
-    date: 'Octubre 11,2025',
-    category: 'Cultura',
-  },
-  {
-    id: 17,
-    title: 'Su “batalla cultural” en las “reformas laborales”',
-    summary: 'Todas las parafernalias neoliberales tienen por fondo y forma multiplicar las ganancias burguesas bajo condiciones de explotación irrefrenables. Ya el “trabajo” ha sido sometido a una guerra semiótica violenta, prolongada, intensa y, a ratos, silenciosa. ',
-    content: `El capitalismo ha comprendido que dominar los significados del tiempo, el salario y la dignidad… equivale a dominar, cínicamente, la realidad misma de los trabajadores y las trabajadoras. Su ofensiva actual –tecnológica,
-    ideológica y cultural, busca aniquilar no sólo los derechos conquistados, sino la memoria de esos derechos. 
-    Se trata de una “batalla cultural” burguesa también en los territorios simbólicos, 
-    cuyo blanco de fuego es la conciencia colectiva hacia una “reingeniería semiótica” diseñada para borrar las huellas históricas del trabajo como fuerza creadora, 
-    social y emancipadora, sustituyéndolas por la narrativa empresarial del “empleo flexible”, la “emprendeduría individual”, la “colaboración” y el “retiro voluntario”.
-     En su ofensiva contra la clase trabajadora, la burguesía ha desplegado una estrategia demencial de resignificación. `,
-    image: 'https://www.jornada.com.mx/ndjsimg/images/jornada/jornadaimg/su-batalla-cultural-en-las-reformas-laborales/su-batalla-cultural-en-las-reformas-laborales_8c420e88-4d92-4a41-b83b-1d1298f343a7_medialjnimgndimage=fullsize',
-    date: 'Octubre 16,2025',
-    category: 'Nacional',
-  },
-  {
-    id: 18,
-    title: 'Atacan con drones unidad antisecuestros de Fiscalía de Baja California',
-    summary: 'Mexicali, BC. Las oficinas de la Unidad Antisecuestros de la Fiscalía General de Baja California fue atacada con explosivos durante la noche de miércoles, confirmaron fuentes consultadas. ',
-    content: `El ataque se produjo mediante drones que sobrevolaron por el inmueble ubicado en Playas de Tijuana.
-    Los explosivos no dejaron agentes ministeriales heridos ni personal administrativo. 
-Hace un mes, en septiembre se produjeron ataques contra dos oficinas de la FGBC en el puerto de Ensenada y otra de Tijuana con saldos de cinco patrullas quemadas con artefactos explosivos.`,
-    image: 'https://www.jornada.com.mx/ndjsimg/images/jornada/jornadaimg/atacan-con-drones-a-fiscalia-de-baja-california/atacan-con-drones-a-fiscalia-de-baja-california_99980bc6-ea61-488f-9c96-34e9c50a3d65_medialjnimgndimage=fullsize',
-    date: 'Octubre 15,2025',
-    category: 'Nacional',
-  },
-  {
-    id: 19,
-    title: 'Kapital Grupo Financiero planea una oferta dual en mercados',
-    summary: 'En unos años, Kapital Grupo Financiero podrá hacer una oferta dual en los mercados mexicanos y estadunidenses, reveló Alejandra Marcos, directora de análisis y estrategia en Kapital Grupo Financiero.',
-    content: `Kapital se integró como un Grupo Financiero en México tras la adquisición de la Casa de Bolsa y la Operadora de Fondos de Intercam, un movimiento que fue autorizado por la Comisión Nacional Bancaria y de Valores (CNBV) el 29 de agosto del presente año.
-    Intercam, institución que fue acusada por el gobierno estadunidense de facilitar lavado de dinero para organizaciones criminales a finales de junio pasado junto con CIBanco y Vector, operaba como Grupo Financiero desde 1996. Hasta ahora las autoridades de aquel país no han presentado las pruebas, según ha expresado en varias ocasiones el gobierno mexicano.
-    Alejandra Marcos explicó que Kapital adquirió ciertos activos de Intercam Grupo Financiero, pues René Saúl, director general del Grupo, acabó por levantar capital por 86 millones de dólares, que originó que un valuador independiente de fondos de capital privado ya arrojara una valuación por más de mil 350 millones de dólares.
-    Aseguró que este banco (Kapital) va a revolucionar la industria, pues tiene un brazo muy potente en términos tecnológicos, de ahí que necesitará más capital para su crecimiento.`,
-    image: 'https://www.jornada.com.mx/ndjsimg/images/jornada/jornadaimg/kapital-grupo-financiero-planea-una-oferta-dual-en-mercados/kapital-grupo-financiero-planea-una-oferta-dual-en-mercados_cd2ae893-24da-483f-9cdf-d9d78cbe26c7_medialjnimgndimage=fullsize',
-    date: 'Octubre 15,2025',
-    category: 'Internacional',
-  },
-  {
-    id: 20,
-    title: 'El informe sobre la implosión del "Titán" apunta a "un proceso inadecuado de ingeniería" como causa',
-    summary: 'Afirma que OceanGate no determinó con éxito "la fuerza y durabilidad" del sumergible, que habría sufrido daños en inmersiones previas',
-    content: `Afirma que OceanGate no determinó con éxito "la fuerza y durabilidad" del sumergible, que habría sufrido daños en inmersiones previas
-    El informe sobre la implosión del 'Titán' apunta a "un proceso inadecuado de ingeniería" como causa
-La implosión sufrida por el sumergible 'Titán' de la empresa OceanGate 
-durante una inmersión con turistas para visitar los restos del Titanic fue causada por "un proceso inadecuado de ingeniería" por parte de la compañía,
- que derivó en el fallo catastrófico registrado en junio de 2023,
-  que se saldó con la muerte de los cinco ocupantes del batiscafo, según las conclusiones de la Junta Nacional de Seguridad en el Transporte (NTSB,
-  según sus siglas en inglés).`,
-    image: 'https://tse4.mm.bing.net/th/id/OIP.k9pKyN02o3jNFZf6BeQ_3gHaFE?pid=Api&P=0&h=180',
-    date: 'Octubre 16,2025',
-    category: 'Internacional',
-  },
-  {
-    id: 21,
-    title: 'Maestros de educación indígena-SNTE inician paro laboral en Oaxaca',
-    summary: 'Maestros del nivel de Educación Indígena de la Sección 22 del Sindicato Nacional de Trabajadores de la Educación (SNTE) iniciaron un paro de labores de 48 horas para exigir la atención a las necesidades de este sector y el reconocimiento de la Dirección de Pueblos Originarios en el Instituto Estatal de Educación Pública de Oaxaca (IEEPO).',
-    content: `Los docentes, además, se instalaron en plantón en el zócalo de la capital del estado y tienen programada una marcha del monumento a Benito Juárez, ubicado en el cruce vial de San Andrés Huayapam, hacia el centro de la ciudad.
-    El titular de Trabajos y Conflictos del nivel de Educación Indígena de la Sección 22 del SNTE, Rodrigo Sánchez Joaquín, informó que una de sus principales demandas es resolver la asignación o contratación de personal para más de mil 500 personas con las que se cubrirían los espacios necesarios para el funcionamiento de este nivel.`,
-    image: 'https://s.yimg.com/ny/api/res/1.2/FZrb7Guj.bW9Ffi_6Q3C5w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTIyMDA7aD0xMzMyO2NmPXdlYnA-/https://media.zenfs.com/es/eluniversal.com.mx/bd53dd987a3e6c9d6e093d61c7a98b96',
-    date: 'Octubre 13,2025',
-    category: 'Estatal',
-  },
-  {
-    id: 22,
-    title: 'Especialistas del USDA evaluarán acciones contra el gusano barrenador del ganado en Oaxaca',
-    summary: 'Expertos del Departamento de Agricultura de Estados Unidos (USDA) visitarán Oaxaca para revisar los avances en la erradicación del gusano barrenador.',
-    content: `Especialistas del Departamento de Agricultura de Estados Unidos (USDA, por sus siglas en inglés) visitarán Oaxaca del 21 al 25 de octubre para revisar los trabajos de combate y erradicación del gusano barrenador del ganado, informó el secretario de Fomento Agroalimentario y Desarrollo Rural del Estado (Sefader), Víctor López Leyva.
-    En declaraciones a la prensa, precisó que el equipo del USDA y del Servicio Nacional de Sanidad, Inocuidad y Calidad Agroalimentaria (Senasica) estará en diversas municipalidades de la región del Istmo de Tehuantepec, así como en puntos de comercio de ganado en pie (baratillos) ubicados en municipios conurbados de la capital oaxaqueña.`,
-    image: 'https://www.excelsior.com.mx/770x530/filters:format(webp):quality(75)/media/pictures/2025/10/14/3399000.jpg',
-    date: 'Octubre 14,2025',
-    category: 'Estatal',
-  },
-  {
-    id: 23,
-    title: 'Presa El Boquerón: paisaje oculto con vistas impresionantes a sólo 20 minutos de Tlaxiaco, Oaxaca',
-    summary: 'Vive una experiencia única en la presa El Boquerón, donde podrás disfrutar de caminatas, pesca, cabañas, vistas panorámicas y comida típica de la región',
-    content: `En el corazón de la región Mixteca de Oaxaca se encuentra un verdadero paraíso natural que espera ser descubierto por quienes buscan una escapatoria del bullicio de la vida cotidiana.
-    A sólo 20 minutos de la Heroica Ciudad de Tlaxiaco, la presa El Boquerón ofrece un rincón de serenidad, rodeado por un paisaje espectacular de montañas y bosques que la convierten en un destino ideal para el turismo de aventura, relajación y fotografía.`,
-    image: 'https://i.ytimg.com/vi/uTrnTojj6H8/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEUgVChlMA8=&rs=AOn4CLD0_Qa_xinbKKhYi4VbK12v7xwBQA',
-    date: 'Octubre 9,2025',
-    category: 'Municipal',
-  },
-  {
-    id: 24,
-    title: 'Gran Fiesta Titular Tlaxiaco 2025',
-    summary: 'La Gran Fiesta Titular Tlaxiaco 2025 promete superar expectativas, reafirmando su lugar como una de las celebraciones más emblemáticas de la Mixteca oaxaqueña.',
-    content: `La Gran Fiesta Titular Tlaxiaco 2025 se prepara para llenar de alegría, tradición y color a la Heroica Ciudad de Tlaxiaco, Oaxaca, del 13 al 17 de octubre. Esta celebración, una de las más esperadas en la región Mixteca, reúne lo mejor de la cultura, la fe y la identidad de su gente, convirtiéndose en un punto de encuentro para locales, visitantes y paisanos que regresan desde distintas partes del país y del extranjero para disfrutar de su fiesta más grande.,
-    La festividad se realiza en honor al Señor de los Corazones, patrono de Tlaxiaco, cuya imagen es venerada con gran devoción. Durante los días de fiesta se llevan a cabo solemnes misas, procesiones y actividades religiosas que reflejan el profundo sentimiento espiritual de la comunidad. Las calles se llenan de coloridos tapetes, flores, cohetes y música, mientras los fieles acompañan al santo patrono en recorridos llenos de fe y gratitud.`,
-    image: 'https://i.ytimg.com/vi/LRmIJgXTwo0/maxresdefault.jpg',
-    date: 'Octubre 5,2025',
-    category: 'Municipal',
-  }
 ];

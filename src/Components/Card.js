@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     color: '#888',
     marginBottom: 10,
   },
-
+  
   // Botón "Ver más"
   moreButton: {
     alignSelf: 'flex-start',
