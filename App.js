@@ -43,7 +43,6 @@ export default function App() {
         />
         <Stack.Screen name="Radio" component={RadioScreen} />
         <Stack.Screen name="Notifications" component={NotificationsScreen} />
-
         {/* Pantallas de configuración */}
         <Stack.Screen name="Configuración" component={ConfiguracionScreen} />
         <Stack.Screen name="Notificaciones" component={NotificacionesScreen} />
