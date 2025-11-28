@@ -1,40 +1,55 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+
+const Paragraph = memo(({ text }) => (
+  <Text style={styles.content}>{text}</Text>
+));
 
 export default function NewsDetailScreen() {
   const navigation = useNavigation();
   const route = useRoute();
   const { news } = route.params;
 
-  // Separa el contenido en párrafos para renderizar de manera eficiente
-  const paragraphs = news.content ? news.content.split('\n') : [];
+  const handleGoBack = useCallback(() => {
+    navigation.goBack();
+  }, [navigation]);
+
+  // Separa por saltos de línea, si los hay
+  const paragraphs = news.summary ? news.summary.split('\n') : [];
 
   return (
     <View style={styles.container}>
-      {/* Scroll principal */}
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
       >
-        {/* Imagen superior */}
-        <Image source={{ uri: news.image }} style={styles.newsImage} resizeMode="cover" />
+        <Image 
+          source={{ uri: news.image }} 
+          style={styles.newsImage} 
+          resizeMode="cover"
+          fadeDuration={0}
+        />
 
-        {/* Contenedor de la información */}
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{news.title}</Text>
           <Text style={styles.date}>{news.date}</Text>
 
-          {paragraphs.map((p, index) => (
-            <Text key={index} style={styles.content}>{p}</Text>
-          ))}
+          {paragraphs.length > 0 ? (
+            paragraphs.map((p, index) => <Paragraph key={index} text={p} />)
+          ) : (
+            <Paragraph text="Sin descripción disponible" />
+          )}
         </View>
       </ScrollView>
 
-      {/* Navbar inferior con botón circular de regresar */}
       <View style={styles.navbar}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity 
+          style={styles.backButton} 
+          onPress={handleGoBack}
+          activeOpacity={0.7}
+        >
           <Ionicons name="arrow-back" size={28} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -43,14 +58,8 @@ export default function NewsDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  scrollContainer: {
-    paddingBottom: 120,
-    flexGrow: 1,
-  },
+  container: { flex: 1, backgroundColor: '#fff' },
+  scrollContainer: { paddingBottom: 120, flexGrow: 1 },
   newsImage: {
     width: '100%',
     height: 250,
@@ -65,23 +74,9 @@ const styles = StyleSheet.create({
     padding: 20,
     minHeight: 400,
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#222',
-  },
-  date: {
-    fontSize: 14,
-    color: '#999',
-    marginBottom: 15,
-  },
-  content: {
-    fontSize: 16,
-    color: '#333',
-    lineHeight: 26,
-    marginBottom: 15,
-  },
+  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 10, color: '#222' },
+  date: { fontSize: 14, color: '#999', marginBottom: 15 },
+  content: { fontSize: 16, color: '#333', lineHeight: 26, marginBottom: 15 },
   navbar: {
     position: 'absolute',
     bottom: Platform.OS === 'ios' ? 30 : 20,
@@ -96,7 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0a325aff',
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 6, 
+    elevation: 6,
     shadowColor: '#000', 
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
