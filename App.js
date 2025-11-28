@@ -17,6 +17,7 @@ import PoliticaPrivacidadScreen from './src/Pages/PoliticaPrivacidadScreen';
 import TerminosScreen from './src/Pages/TerminosScreen';
 import SoporteScreen from './src/Pages/SoporteScreen';
 import PreguntasScreen from './src/Pages/PreguntasScreen';
+import SocialScreen from './src/Pages/SocialScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +43,6 @@ export default function App() {
         />
         <Stack.Screen name="Radio" component={RadioScreen} />
         <Stack.Screen name="Notifications" component={NotificationsScreen} />
-
         {/* Pantallas de configuración */}
         <Stack.Screen name="Configuración" component={ConfiguracionScreen} />
         <Stack.Screen name="Notificaciones" component={NotificacionesScreen} />
@@ -51,6 +51,7 @@ export default function App() {
         <Stack.Screen name="Términos y Condiciones" component={TerminosScreen} />
         <Stack.Screen name="Contactar Soporte" component={SoporteScreen} />
         <Stack.Screen name="Preguntas Frecuentes" component={PreguntasScreen} />
+        <Stack.Screen name="Social" component={SocialScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
