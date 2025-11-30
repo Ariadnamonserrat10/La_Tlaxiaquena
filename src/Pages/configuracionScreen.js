@@ -27,7 +27,7 @@ export default function ConfiguracionScreen({ navigation }) {
           style={styles.item}
           onPress={() => navigation.navigate("Política de Privacidad")}
         >
-          <Ionicons name="document-text-outline" size={22} color="#5B4CCC" />
+          <Ionicons name="document-text-outline" size={22} color="#1b325f" />
           <Text style={[styles.text, { color: texto }]}>Política de privacidad</Text>
         </TouchableOpacity>
 
@@ -35,7 +35,7 @@ export default function ConfiguracionScreen({ navigation }) {
           style={styles.item}
           onPress={() => navigation.navigate("Términos y Condiciones")}
         >
-          <Ionicons name="newspaper-outline" size={22} color="#5B4CCC" />
+          <Ionicons name="newspaper-outline" size={22} color="#1b325f" />
           <Text style={[styles.text, { color: texto }]}>Términos y condiciones</Text>
         </TouchableOpacity>
       </View>
@@ -48,7 +48,7 @@ export default function ConfiguracionScreen({ navigation }) {
           style={styles.item}
           onPress={() => navigation.navigate("Contactar Soporte")}
         >
-          <Ionicons name="headset-outline" size={22} color="#5B4CCC" />
+          <Ionicons name="headset-outline" size={22} color="#1b325f" />
           <Text style={[styles.text, { color: texto }]}>Contactar soporte</Text>
         </TouchableOpacity>
 
@@ -56,7 +56,7 @@ export default function ConfiguracionScreen({ navigation }) {
           style={styles.item}
           onPress={() => navigation.navigate("Preguntas Frecuentes")}
         >
-          <Ionicons name="help-circle-outline" size={22} color="#5B4CCC" />
+          <Ionicons name="help-circle-outline" size={22} color="#1b325f" />
           <Text style={[styles.text, { color: texto }]}>Preguntas frecuentes</Text>
         </TouchableOpacity>
       </View>
@@ -69,7 +69,7 @@ export default function ConfiguracionScreen({ navigation }) {
           style={styles.item}
           onPress={() => setTema(tema === "Claro" ? "Oscuro" : "Claro")}
         >
-          <Ionicons name="contrast-outline" size={22} color="#5B4CCC" />
+          <Ionicons name="contrast-outline" size={22} color="#1b325f" />
           <Text style={[styles.text, { color: texto }]}>
             Cambiar a modo {tema === "Claro" ? "Oscuro" : "Claro"}
           </Text>
