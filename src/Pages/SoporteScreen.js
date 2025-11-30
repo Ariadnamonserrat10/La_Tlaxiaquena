@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity, Linking } from "react-native"
 
 export default function SoporteScreen() {
   const abrirCorreo = () => {
-    Linking.openURL("mailto:soporte@miapp.com?subject=Ayuda%20con%20la%20app");
+     Linking.openURL("mailto:soporte@miapp.com?subject=Ayuda%20con%20la%20app");
   };
 
   return (
-    <View style={styles.container}>
+     <View style={styles.container}>
       <Text style={styles.titulo}>Contactar Soporte</Text>
       <Text style={styles.text}>
         Si tienes algún problema o duda, nuestro equipo de soporte está disponible para ayudarte.
