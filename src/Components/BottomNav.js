@@ -19,9 +19,8 @@ export default function BottomNav({ activeTab = 'home' }) {
   function getBubblePosition(tab) {
     const positions = {
       'home': 0,
-      'radio': 1,
-      'social': 2,
-      'settings': 3,
+      'social': 1,
+      'settings': 2,
     };
     return positions[tab] || 0;
   }
@@ -87,15 +86,15 @@ export default function BottomNav({ activeTab = 'home' }) {
   };
 
   // Calcula el translateX de la burbuja con mejor precisión
-  const containerWidth = width - 40; // padding horizontal
-  const itemWidth = containerWidth / 4;
+  const containerWidth = width - 30; // padding horizontal
+  const itemWidth = containerWidth / 3.1;
   const bubbleTranslateX = bubblePosition.interpolate({
-    inputRange: [0, 1, 2, 3],
+    inputRange: [0, 1, 2],
     outputRange: [
       itemWidth * 0.5 - 27.5,
       itemWidth * 1.5 - 27.5,
       itemWidth * 2.5 - 27.5,
-      itemWidth * 3.5 - 27.5,
+
     ],
   });
 
@@ -143,7 +142,7 @@ export default function BottomNav({ activeTab = 'home' }) {
 
       {/* Iconos */}
       {renderNavItem('home', 'home', 'Inicio', 'Home')}
-      {renderNavItem('radio', 'radio', 'Radio', 'Radio')}
+
       {renderNavItem('social', 'people', 'Social', 'Social')}
       {renderNavItem('settings', 'settings-sharp', 'Ajustes', 'Configuración')}
     </View>
@@ -174,7 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 27.5,
     backgroundColor: '#0047AB',
     elevation: 8,
-    shadowColor: '#0047AB',
+    shadowColor: '#1b325f',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 8,
@@ -196,7 +195,7 @@ const styles = StyleSheet.create({
     fontSize: 9,
     fontWeight: '600',
     marginTop: 2,
-    color: '#0047AB',
+    color: '#1b325f',
   },
   activeLabelText: {
     color: '#FFFFFF',

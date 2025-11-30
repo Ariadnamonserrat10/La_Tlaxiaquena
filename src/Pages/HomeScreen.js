@@ -27,7 +27,8 @@ export default function HomeScreen() {
   const scrollX = useRef(new Animated.Value(0)).current;
   const flatListRef = useRef(null);
 
-  const API_BASE = 'http://192.168.20.8/Pruebas/wp-json/noticias/v1';
+  // const API_BASE = 'http://192.168.20.8/Pruebas/wp-json/noticias/v1';
+const API_BASE = 'http://192.168.0.106/webcurso/wp-json/noticias/v1';
 
   // Anuncios simulados con colores vibrantes
   const ads = [
@@ -61,21 +62,22 @@ export default function HomeScreen() {
 
   // Traer categorías
   useEffect(() => {
-    fetch(${API_BASE}/categorias)
+    fetch(`${API_BASE}/categorias`)
       .then(res => res.json())
       .then(data => setCategorias(data))
       .catch(err => console.error('Error categorías:', err));
   }, []);
 
-  // Traer noticias, opcionalmente por categoría
-  useEffect(() => {
-    let url = ${API_BASE}/noticias;
-    if (selectedCategory) url += ?categoria=${selectedCategory};
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setNoticias(data))
-      .catch(err => console.error('Error noticias:', err));
-  }, [selectedCategory]);
+ // Traer noticias, opcionalmente por categoría
+useEffect(() => {
+  let url = `${API_BASE}/noticias`;
+  if (selectedCategory) url += `?categoria=${selectedCategory}`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => setNoticias(data))
+    .catch(err => console.error('Error noticias:', err));
+}, [selectedCategory]);
 
   // Filtrar noticias por búsqueda (en todas las categorías)
   const filteredNews = noticias.filter(n => {
@@ -404,12 +406,12 @@ const styles = StyleSheet.create({
     fontSize: width * 0.028,
   },
   categoryNameSelected: {
-    color: '#FF0000',
+    color: '#F26C4F',
     fontWeight: 'bold',
     fontSize: width * 0.032,
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: '#E9F2F9',
     borderRadius: 15,
     marginHorizontal: '5%',
     marginBottom: height * 0.02,

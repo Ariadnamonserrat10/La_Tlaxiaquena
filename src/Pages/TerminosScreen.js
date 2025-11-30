@@ -23,12 +23,13 @@ export default function TerminosScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff",  paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0, },
+  container: { flex: 1, backgroundColor: "#fff",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0, },
   titulo: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
     marginTop: 60, 
   },
-  text: { fontSize: 16, color: "#333", marginBottom: 10 },
+  text: { fontSize: 16, color: "#070707ff", marginBottom: 10 },
 });
