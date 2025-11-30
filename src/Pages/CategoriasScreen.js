@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F5F5F5' },
   scrollContent: { padding: 15, paddingBottom: 100 },
   header: { fontSize: 22, fontWeight: 'bold', marginBottom: 15 },
-  card: { backgroundColor: '#fff', borderRadius: 15, marginBottom: 20, overflow: 'hidden', padding: 10, elevation: 2 },
+  card: { backgroundColor: '#e9f2f9', borderRadius: 15, marginBottom: 20, overflow: 'hidden', padding: 10, elevation: 2 },
   image: { width: '100%', height: 180, borderRadius: 10 },
   title: { fontSize: 18, fontWeight: 'bold', marginTop: 8 },
   summary: { fontSize: 14, color: '#666', marginTop: 5 },
