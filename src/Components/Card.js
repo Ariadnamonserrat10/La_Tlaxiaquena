@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 20,
     overflow: 'hidden',
-    backgroundColor: '#fff',
+    backgroundColor: '#9cc4e4',
     elevation: 5,
     shadowColor: '#000', 
     shadowOffset: { width: 0, height: 3 },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   // Botón "Ver más"
   moreButton: {
     alignSelf: 'flex-start',
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#f26c4f',
     paddingVertical: 6,
     paddingHorizontal: 15,
     borderRadius: 12,
