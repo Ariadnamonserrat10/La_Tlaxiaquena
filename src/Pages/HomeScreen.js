@@ -139,7 +139,7 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#9cc4e4' }}>
+    <View style={{ flex: 1, backgroundColor: '#fff' }}>
       {showConnectionMessage && (
         <View style={[
             styles.connectionBanner,
@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
     fontSize: width * 0.032,
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: '#e9f2f9',
     borderRadius: 15,
     marginHorizontal: '5%',
     marginBottom: height * 0.02,
