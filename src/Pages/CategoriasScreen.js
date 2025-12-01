@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet, ActivityIndicator } from 'react-native';
 import BottomNav from '../Components/BottomNav';
 
-const API_BASE = 'http://192.168.0.105/Pruebas/wp-json/noticias/v1';
+const API_BASE = 'http://192.168.0.106/webcurso/wp-json/noticias/v1';
 
 export default function CategoryScreen({ route, navigation }) {
   const category = route?.params?.category || 'Sin categoría';

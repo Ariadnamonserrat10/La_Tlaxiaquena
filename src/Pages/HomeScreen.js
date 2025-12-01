@@ -27,7 +27,7 @@ export default function HomeScreen() {
   const scrollX = useRef(new Animated.Value(0)).current;
   const flatListRef = useRef(null);
 
-  const API_BASE = 'http://192.168.0.105/Pruebas/wp-json/noticias/v1';
+  const API_BASE = 'http://192.168.0.106/webcurso/wp-json/noticias/v1';
 
   // Anuncios simulados con colores vibrantes
   const ads = [
@@ -139,7 +139,7 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+    <View style={{ flex: 1, backgroundColor: '#9cc4e4' }}>
       {showConnectionMessage && (
         <View style={[
             styles.connectionBanner,
