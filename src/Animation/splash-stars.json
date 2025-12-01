@@ -1,0 +1,32 @@
+{
+  "stars": {
+    "count": 160,
+    "minSize": 1,
+    "maxSize": 5,
+    "twinkleDuration": 1600,
+    "twinkleDelay": 900
+  },
+
+  "logo": {
+    "initialScale": 0.3,
+    "finalScale": 1,
+    "glowMax": 1.4,
+    "fadeInDuration": 900
+  },
+
+  "nebula": {
+    "opacityStart": 0,
+    "opacityEnd": 0.55,
+    "fadeDuration": 2200
+  },
+
+  "gravity": {
+    "distortionAmount": 6,
+    "cycleDuration": 2600
+  },
+
+  "scene": {
+    "fadeOutDuration": 900,
+    "scaleExit": 1.15
+  }
+}
