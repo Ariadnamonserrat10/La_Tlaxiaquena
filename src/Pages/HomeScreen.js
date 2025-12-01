@@ -25,7 +25,7 @@ export default function HomeScreen() {
   const scrollX = useRef(new Animated.Value(0)).current;
   const flatListRef = useRef(null);
 
-  const API_BASE = 'http://192.168.0.106/webcurso/wp-json/noticias/v1';
+  const API_BASE = 'http://192.168.0.105/webcurso/wp-json/noticias/v1';
 
   const ads = [
     {
