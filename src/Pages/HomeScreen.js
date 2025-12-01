@@ -27,7 +27,7 @@ export default function HomeScreen() {
   const scrollX = useRef(new Animated.Value(0)).current;
   const flatListRef = useRef(null);
 
-  const API_BASE = 'http://192.168.0.105/Pruebas/wp-json/noticias/v1';
+  const API_BASE = 'http://192.168.0.106/webcurso/wp-json/noticias/v1';
 
   // Anuncios simulados con colores vibrantes
   const ads = [
@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
     fontSize: width * 0.032,
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: '#e9f2f9',
     borderRadius: 15,
     marginHorizontal: '5%',
     marginBottom: height * 0.02,

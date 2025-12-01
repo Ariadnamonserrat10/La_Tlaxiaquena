@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   titulo: { fontSize: 24, fontWeight: "bold", marginBottom: 15 },
   text: { fontSize: 16, color: "#333", marginBottom: 20 },
   boton: {
-    backgroundColor: "#007bff",
+    backgroundColor: "#f26c4f",
     paddingVertical: 12,
     borderRadius: 8,
   },
