@@ -21,7 +21,7 @@ export default function AppBar({ onSearchPress, onNotificationsPress, hasUnread 
       <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
 
       <Image
-        source={require('../img/nt-el-reloj-circular.gif')}
+        source={require('../img/nusavi.jpg')}
         style={styles.logo}
       />
 
