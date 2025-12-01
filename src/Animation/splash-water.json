@@ -1,0 +1,79 @@
+{
+  "logo": {
+    "initialY": -220,
+    "fallDuration": 1400,
+    "refractionIntensity": 0.25,
+    "splashScale": 1.18,
+    "finalFloatY": -12,
+    "floatDuration": 2600
+  },
+
+  "ripples": {
+    "mainRipple": {
+      "maxRadius": 240,
+      "duration": 1500,
+      "fadeDuration": 1300
+    },
+    "microRipples": {
+      "count": 3,
+      "maxRadius": 120,
+      "duration": 1600,
+      "fadeDuration": 1500
+    }
+  },
+
+  "waterDistortion": {
+    "intensity": 12,
+    "speed": 1800,
+    "microWaveSpeed": 900,
+    "microWaveStrength": 6
+  },
+
+  "lightShines": {
+    "count": 6,
+    "rotationDuration": 6000,
+    "blinkDuration": 900,
+    "maxOpacity": 0.35,
+    "length": 200
+  },
+
+  "waterBubbles": {
+    "count": 65,
+    "minSize": 5,
+    "maxSize": 18,
+    "riseDurationMin": 2800,
+    "riseDurationMax": 4200,
+    "horizontalDrift": 26,
+    "pulseDuration": 700
+  },
+
+  "waterExplosion": {
+    "count": 32,
+    "distanceRange": [120, 260],
+    "duration": 700
+  },
+
+  "waterSurface": {
+    "waveAmplitude": 14,
+    "waveSpeed": 2600,
+    "microWaveStrength": 5
+  },
+
+  "scene": {
+    "fadeInDuration": 700,
+    "fadeOutDuration": 900,
+    "globalScale": 1.08,
+    "autoExitDelay": 3300
+  },
+
+  "palette": {
+    "base": "#04172a",
+    "tones": [
+      "#06304b",
+      "#094a6f",
+      "#0e6aa1",
+      "#4aa3db",
+      "#bfe9ff"
+    ]
+  }
+}
