@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   // Botón "Ver más"
   moreButton: {
     alignSelf: 'flex-start',
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#1b325f',
     paddingVertical: 6,
     paddingHorizontal: 15,
     borderRadius: 12,
